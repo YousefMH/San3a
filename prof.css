@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+
+body{
+    background: url(Untitled-1.jpg);
+    font-family: "Tajawal", sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    height:100vh;
+    margin: 0px;
+    
+    
+}
+
+.header{
+
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px 60px;
+    background-color: rgba(255, 174, 0, 0.7);
+    border-radius: 0 0 20px 20px;
+    height: 50px;
+    
+
+}
+
+.logo{
+    width: 99px;
+    padding: 0px 40px;
+
+}
+
+.link{
+    
+    
+    gap: 10px;
+
+}
+
+.link a{
+    text-decoration: none;
+    padding: 4px 20px;
+    color: #fff;
+    width: 30%;
+}
+
+.link a:hover{
+    color: #000000;
+    background-color: #f0b22b;
+    border-radius: 35px;
+}
+
+
+
+.link button{
+    
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+}
+
+
+.form-container {
+    width: 25%;
+    margin: 70px auto;
+    padding: 30px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    background-color: #222;
+    
+    
+
+}
+
+.profile-section {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin: auto;
+}
+
+.upload-icon {
+    display: block;
+    margin-top: 5px;
+    margin-left: 180px;
+    font-size: 20px;
+    cursor: pointer;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.name-fields {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    
+    
+}
+
+.name-fields input {
+    width: 78%;
+    border-radius: 30px;
+
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    text-align: right;
+    border-radius: 30px;
+    font-family: "Tajawal", sans-serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Tajawal", sans-serif;
+    border-radius: 30px;
+}
+
+.edit {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    width: 45%;
+}
+
+.save {
+    background-color: transparent;
+    border: 1px solid #ffcc00;
+    color: #ffcc00;
+    width: 45%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.manage{
+    font-family: "Tajawal", sans-serif;
+    background: none;
+    border: none;
+    color: white;
+}
+
+option{
+    background-color: rgb(212, 138, 0);
+    text-align: center;
+    border-radius: 30px;
+
+}

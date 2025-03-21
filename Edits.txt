@@ -1,0 +1,5 @@
+Edits:
+
+- The password confirmation must work with js (client side)
+- The headers isn't the same on all pages, for example (Home is deferent from others)
+- 
