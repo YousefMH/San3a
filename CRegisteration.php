@@ -25,7 +25,7 @@
                 echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
                 <strong>مستخدم موجود</strong> لديك بالفعل حساب مسجل في موقعنا 
                 <a href="index.php" style="color:rgb(90, 31, 255); text-decoration: none; font-weight: bold;">سجل دخول من هنا: </a>
-              </div>';
+            </div>';
             }
         }else{
             echo "<script>alert('You Must Fill All Inputs');</script>";
@@ -40,7 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عميل</title>
-    <link rel="stylesheet" href="Customer.css">
+    <link rel="stylesheet" href="./style/Customer.css">
 </head>
 
 <body>

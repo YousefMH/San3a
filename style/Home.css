@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+
+body{
+    background: url(../Resorces/carpenter-steven-remple.jpg.webp);
+    font-family: "Tajawal", sans-serif;
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    height:100vh;
+    margin: 0px;
+    
+}
+
+.header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #FBAE3C;
+    border-radius: 0 0 20px 20px;
+    height: 50px;
+
+}
+
+.logo{
+    width: 99px;
+    padding: 0px 40px;
+
+}
+
+.link{
+    display: flex;
+    gap: 30px;
+    font-size: 17px;
+    
+}
+
+.link a{
+    text-decoration: none;
+    padding: 4px 20px;
+    color: #fff;
+}
+
+.link a:hover{
+    color: #000000;
+    background-color: #f0b22b;
+    border-radius: 35px;
+}
+
+
+
+.link button{
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+}
+
+.manage{
+    font-family: "Tajawal", sans-serif;
+    background: none;
+    border: none;
+    color: white;
+}
+
+option{
+    background-color: rgb(212, 138, 0);
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.now{
+    font-family: "Tajawal", sans-serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 65%;
+    border: none;
+    padding: 150px 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn{
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+}

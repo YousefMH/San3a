@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
 body{
-    background: url(Untitled-1.jpg);
+    background: url(../Resorces/background.jpg);
     font-family: "Tajawal", sans-serif;
     background-repeat: no-repeat;
     background-position: center;
@@ -12,18 +12,17 @@ body{
     
     
 }
-
 .header{
 
     display: flex;
-    justify-content:space-between;
     align-items: center;
-    padding: 10px 60px;
+    justify-content: space-between;
+    padding: 20px 60px;
     background-color: rgba(255, 174, 0, 0.7);
     border-radius: 0 0 20px 20px;
     height: 50px;
     
-
+    
 }
 
 .logo{
@@ -33,17 +32,20 @@ body{
 }
 
 .link{
-    
-    
-    gap: 10px;
-
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+    white-space: nowrap;
+    align-items: center;
+    vertical-align: middle; 
+    margin: 0px;
+    padding: 0;
 }
 
 .link a{
     text-decoration: none;
-    padding: 4px 20px;
+    padding: 10px 20px;
     color: #fff;
-    width: 30%;
 }
 
 .link a:hover{
@@ -55,7 +57,6 @@ body{
 
 
 .link button{
-    
     background-color: #f0b22b;
     border: none;
     padding: 5px 20px;
@@ -63,8 +64,8 @@ body{
     cursor: pointer;
     font-size: 20px;
     font-family: "Tajawal", sans-serif;
+    
 }
-
 
 .form-container {
     width: 25%;

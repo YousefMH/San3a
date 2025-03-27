@@ -1,32 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
 body{
-    background: url(resource/login.jpg);
+    background: url(../Resorces/background.jpg);
     background-repeat: no-repeat;
     background-position: absolute;
     background-size: cover;
-    background-attachment: fixed;
-    
+    /* background-attachment: fixed; */
+    height:100%;
     font-family: "Tajawal", sans-serif;
-
+    
 }
 
-.login-container {
+.register-container {
     background: rgba(70, 70, 70, 0.7);
     padding: 30px;
     border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); */
-    width: 300px;
+    width: 320px;
+    text-align: center;
+
     top: 50%;
     left: 50%;
-    transform: translate(155%, 70%);
+    transform: translate(150%, 3%);
+}
+.register-container a{
+    color: white;
+    text-decoration: none;
 }
 
-.login-container h2 {
-    color: white;
+h2{
+    color: #fff;
+}
+
+.register-container h2 {
     margin-bottom: 20px;
-    font-size: 24px;
-    text-align: center;
+    font-size: 22px;
 }
 
 input {
@@ -39,38 +46,34 @@ input {
     color: #fff;
     outline: none;
     direction: rtl;
+    font-family: "Tajawal", sans-serif;
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.login-btn {
-    width: 108%;
-    padding: 10px 19px;
+
+.upload-label {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "Tajawal", sans-serif;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
     background-color: #d4a017;
     border: none;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
-    margin-left: -9px;
-    font-family: "Tajawal", sans-serif;
-}
-
-.new-account {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.new-account a {
-    color: #ffffff;
-    text-decoration: none;
-    ;
-}
-
-.phone{
     font-family: "Tajawal", sans-serif;
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
 body{
-    background: url(Untitled-1.jpg);
+    background: url(../Resorces/background.jpg);
     font-family: "Tajawal", sans-serif;
     background-repeat: no-repeat;
     background-position: absolute;
@@ -118,6 +118,7 @@ body{
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    margin-left: 10px;
    
 }
 
@@ -126,30 +127,40 @@ body{
     color: darkblue;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
 
 .cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     gap: 20px;
     padding: 20px;
-
-
+    max-width: 1000px;
+    margin: auto;
+    overflow: auto;
 }
+
 .card {
     background: #444;
     padding: 15px;
     border-radius: 10px;
-    width: 250px;
+    width: 600px;
+    height: 200px;
     text-align: center;
     position: relative;
     color: white;
 }
 .card img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
 }
 
@@ -158,14 +169,16 @@ body{
     transform: scale(1.05);
 }
 
-.left{
+
+.right{
     display: flex;
     flex-direction:column;
     align-items: flex-start;
-    margin-right: 5px;
-    margin-top: -115px;
-    margin-bottom: 10px;
-    width: 95px;
+    margin-left: 480px;
+    width: 100px;
+    margin-top: 45px;
+    
+   
 }
 
 .rating{
@@ -176,28 +189,28 @@ body{
     align-items: center;
     gap: 5px;
     margin: 0;
-    margin-left: 25px; 
+    margin-left: -3px; 
     
 }
 
-.right{
+.left{
     display: flex;
     flex-direction: column;
     text-align: right;
     flex: 1;
-    margin-top: 20px;
-    margin-left: 140px;
-    line-height: 2;
-    width: 100px;
+    margin-top: -135px;
+    margin-right: 200px;
+    gap: 5px;
 }
-.right h3{
+
+.left h3{
     margin: 0;
     padding: 0;
     font-size: 18px;
     font-weight: bold;
 }
 
-.right p{
+.left p{
     margin: 3px;
     margin-right: 1px;
     padding: 0;

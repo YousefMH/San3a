@@ -29,7 +29,7 @@
                 echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
                 <strong>مستخدم موجود</strong> لديك بالفعل حساب مسجل في موقعنا 
                 <a href="index.php" style="color:rgb(90, 31, 255); text-decoration: none; font-weight: bold;">سجل دخول من هنا: </a>
-              </div>';
+            </div>';
             }
         }else{
             echo "<script>alert('You Must Fill All Inputs');</script>";
@@ -37,17 +37,16 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فني</title>
-    <link rel="stylesheet" href="Technical.css">
+    <link rel="stylesheet" href="./style/Technical.css">
 </head>
 <body>
-<form method="POST">
+    <form method="POST">
         <div class="register-container">
             <h2>إنشاء حساب عميل</h2>
             <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
@@ -56,6 +55,14 @@
             <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
             <input type="password" placeholder="أدخل كلمة المرور" name="pass" required>
             <input type="password" placeholder="أعد إدخال كلمة المرور" name ="Cpass" required>
+            <!-- <select name="specialty" id="specialty" required>
+                <option value=" " disabled selected="">اختر التخصص</option>
+                <option value="كهربائي">كهربائي</option>
+                <option value="نجار">نجار</option>
+                <option value="سباك">سباك</option>
+                <option value="حداد">حداد</option>
+                <option value="نقاش">نقاش</option>
+            </select> -->
             <label class="upload-label">صورة البطاقة الشخصية (وجه)</label>
             <input type="file" accept="image/*">
             <label class="upload-label">صورة البطاقة الشخصية (الظهر)</label>

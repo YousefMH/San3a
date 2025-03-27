@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="website icon" type="png" href="Resorces/Frame 16.png">
-    <link rel="stylesheet" href="style/general.css">
-    <link rel="stylesheet" href="style/header.css">
-    <link rel="stylesheet" href="style/footer.css">
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="./style/general.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
@@ -27,12 +27,12 @@
 
             <div class="mid-section">
                 <button class="fav-and-cart">
-                    <img src="Resorces/star.png" class="header-cart"
+                    <img src="./Resorces/star.png" class="header-cart"
                     onclick="window.location.href='shop.php';">
                 </button> 
     
                 <button class="fav-and-cart">
-                    <img src="Resorces/grocery-store.png" class="header-star"
+                    <img src="./Resorces/grocery-store.png" class="header-star"
                     onclick="window.location.href='cart.php';">
                 </button>
             </div>
@@ -60,7 +60,7 @@
         <div class="product-inside-container">
             <div class="product-inside">
                 <div>
-                    <img src="Resorces/mfak.jpg" class="mafak-inside">
+                    <img src="./Resorces/mfak.jpg" class="mafak-inside">
 
                 </div>
                 <p class="title-card-bold">
@@ -77,7 +77,7 @@
                         <p>
                             مفضلة
                         </p>
-                        <img src="Resorces/star.png" alt="">
+                        <img src="./Resorces/star.png" alt="">
                     </button>
                     <p class="price-text">
                         200.LE
@@ -86,7 +86,7 @@
                         <p>
                            أضف إلى العربة
                         </p>
-                        <img src="Resorces/grocery-store.png">
+                        <img src="./Resorces/grocery-store.png">
                     </button>
                 </div>
                 <div class="button-inside-add-container">
@@ -153,12 +153,12 @@
 
     <footer>
         <div class="left-section-footer">
-                <img src="Resorces/google-play.png" class="google-play">
-                <img src="Resorces/pngwing.com (1).png" class="app-store">
+                <img src="./Resorces/google-play.png" class="google-play">
+                <img src="./Resorces/pngwing.com (1).png" class="app-store">
             <div class="small-icon-container">
-                <img src="Resorces/facebook.png" class="small-icon">
-                <img src="Resorces/instagram.png" class="small-icon">
-                <img src="Resorces/twitter.png" class="small-icon">
+                <img src="./Resorces/facebook.png" class="small-icon">
+                <img src="./Resorces/instagram.png" class="small-icon">
+                <img src="./Resorces/twitter.png" class="small-icon">
             </div>
             
         </div>
@@ -183,7 +183,7 @@
 
         <div class="right-section-footer">
             <div class="logo-section">
-                <img src="Resorces/Frame 16.png" class="san3a-logo">
+                <img src="./Resorces/Frame 16.png" class="san3a-logo">
                 <p class="com">
                     .com
                 </p>

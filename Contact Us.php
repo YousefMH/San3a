@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم</title>
-    <link rel="stylesheet" href="Contact Us.css">
+    <link rel="stylesheet" href="./style/Contact Us.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,7 +19,7 @@
         <div class="link">
             <a href="map.php">اقرب فني ليك</a>
             <button onclick="window.location.href='index.php'">سجل الان</button>
-            <a href="homepage.php">الصفحة الرئيسية </a>
+            <a href="Home.php">الصفحة الرئيسية </a>
             <a href="Technical Order.php">التخصصات</a>
             <a href="shop.php">قطع الغيار</a>
             <a href="Contact Us.php">الدعم الفني</a>
@@ -30,8 +30,11 @@
                 <option value="cart.php">عربة التسوق</option>
             </select>
 
+
+
         </div>
     </div>
+
 
     <div class="support-form">
         <h2> هل تحتاج إلي المساعدة ؟</h2>
@@ -55,6 +58,27 @@
 
         </form>
     </div>
+
+
+
+
+
+
+
+
+    <script>
+
+
+        function navigateToPage(value) {
+            if (value) {
+                window.location.href = value;
+            }
+        }
+            </script>
+
+
+
+
 
 
 

@@ -23,12 +23,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كل التخصصات</title>
-    <link rel="stylesheet" href="All Technicals.css">
+    <link rel="stylesheet" href="./style/All Technicals.css">
 </head>
-
 <body>
 
-    <div class="header">
+<div class="header">
         <img src="Resorces/Frame 16.png" alt="" class="logo">
         <div class="link">
             <a href="map.php">اقرب فني ليك</a>
@@ -72,92 +71,41 @@
             </div>
         </div>
     </form>
+
     <div class="technicians">
         <h2>أفضل ما لدينا</h2>
-
+      
         <div class="categories">
             <a href="#"><button>كل التخصصات</button></a>
 
         </div>
 
-        <div id="technicians-list " class="cards ">
+        <div id="technicians-list" class="cards">
+            
+        <?php
 
-<?php
+            if(isset($result)){
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="card">
+                        <div class="right">
+                            <a href=" "><img src="Resorces/man.png " alt="فني "></a>
+                            <div class="rating ">⭐⭐⭐⭐⭐</div>
+                        </div>
 
-    if(isset($result)){
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div class="card">
-                <div class="right">
-                    <a href=" "><img src="Resorces/man.png " alt="فني "></a>
-                    <div class="rating ">⭐⭐⭐⭐⭐</div>
-                </div>
-
-                <div class="left ">
-                    <h3>'. $row["first_name"] . ' ' . $row["last_name"] . '</h3>
-                    <p>' . $row["specialty"] . '</p>
-                    <p>' . $row["area"] . '</p>
-                    <p>' . $row["visit_price"] . '</p>
-                    <p>' . $row["work_hours"] . 'ساعات العمل</p>
-                </div>
-            </div>';
-        }
-    }
-?>
-
-
-            <!-- <div class="card ">
-                <div class="right ">
-                    <a href=" "><img src="Resorces/man.png " alt="فني "></a>
-                    <div class="rating ">⭐⭐⭐⭐</div>
-                </div>
-
-                <div class="left ">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>19 فيصل من ش جمال عبدالناصر</p>
-                    <p>الزيارة : 500 جنيه</p>
-                    <p>ساعات العمل : 9 - 5</p>
-                </div>
-            </div>
-
-            <div class="card ">
-                <div class="right ">
-                    <a href=" "><img src="Resorces/man.png " alt="فني "></a>
-                    <div class="rating ">⭐⭐⭐⭐</div>
-                </div>
-
-                <div class="left ">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>19 فيصل من ش جمال عبدالناصر</p>
-                    <p>الزيارة : 500 جنيه</p>
-                    <p>ساعات العمل : 9 - 5</p>
-                </div>
-            </div>
-
-            <div class="card ">
-                <div class="right ">
-                    <a href=" "><img src="Resorces/man.png " alt="فني "></a>
-                    <div class="rating ">⭐⭐⭐⭐</div>
-                </div>
-
-                <div class="left ">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>19 فيصل من ش جمال عبدالناصر</p>
-                    <p>الزيارة : 500 جنيه</p>
-                    <p>ساعات العمل : 9 - 5</p>
-                </div>
-            </div> -->
-
+                        <div class="left ">
+                            <h3>'. $row["first_name"] . ' ' . $row["last_name"] . '</h3>
+                            <p>' . $row["specialty"] . '</p>
+                            <p>' . $row["area"] . '</p>
+                            <p>' . $row["visit_price"] . '</p>
+                            <p>' . $row["work_hours"] . 'ساعات العمل</p>
+                        </div>
+                    </div>';
+                }
+            }
+        ?>
             <br><br>
-
         </div>
-        <br>
+        <br> 
     </div>
-
-
-
 </body>
-
 </html>

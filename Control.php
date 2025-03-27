@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم</title>
-    <link rel="stylesheet" href="Control.css">
+    <link rel="stylesheet" href="./style/Control.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,10 +19,10 @@
         <div class="link">
             <a href="map.php">اقرب فني ليك</a>
             <button onclick="window.location.href='index.php'">سجل الان</button>
-            <a href="#">الصفحة الرئيسية </a>
+            <a href="Home.php">الصفحة الرئيسية </a>
             <a href="Technical Order.php">التخصصات</a>
             <a href="shop.php">قطع الغيار</a>
-            <a href="#" target="_blank">الدعم الفني</a>
+            <a href="Contact Us.php" >الدعم الفني</a>
             <select id="specialty" class="manage" onchange="navigateToPage(this.value)">
                 <option>🧑 حسابك</option>
                 <option value="prof.php">ادارة الحساب</option>
@@ -93,7 +93,7 @@
 
 
 
-    <script src="control.js"></script>
+    <script src="./js/control.js"></script>
 </body>
 
 </html>

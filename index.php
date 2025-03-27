@@ -13,12 +13,12 @@
                 if(password_verify($pass,$DbPassword)){ // Compare the hashed password in DB with given password in the login page (if true gives 1)
                     $_SESSION['ID'] = $row['user_id'];
                     $_SESSION['fname'] = $row['first_name'];
-                    header("Location:homepage.php"); // Redirect to home page if the password is correct
+                    header("Location:Home.php"); // Redirect to home page if the password is correct
                     exit();
                 }else{
                     echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
                                 <strong>خطأ</strong> كلمة المرور غير صحيحة
-                          </div>';
+                        </div>';
                 }
             }else{
                 echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
@@ -38,10 +38,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل الدخول</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-   
     <div class="login-container">
         <div id="error"></div>
         <form id="form" method="POST">
@@ -49,7 +48,7 @@
             <input id="phone" class="phone" type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
             <input id="password" class="phone" type="password" placeholder="أدخل كلمة المرور" name="pass" required>
             <button class="login-btn" type="submit" name="btnLogin">تسجيل الدخول</button>
-
+            
             <div class="new-account" dir="rtl">
                 <a href="select.php">حساب جديد</a>
             </div>

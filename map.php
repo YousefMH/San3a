@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أقرب فني ليك</title>
-    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="./style/map.css">
 </head>
 
 <body>
@@ -15,10 +15,10 @@
         <div class="link">
             <a href="map.php">اقرب فني ليك</a>
             <button onclick="window.location.href='index.php'">سجل الان</button>
-            <a href="#">الصفحة الرئيسية </a>
+            <a href="Home.php">الصفحة الرئيسية </a>
             <a href="Technical Order.php">التخصصات</a>
             <a href="shop.php">قطع الغيار</a>
-            <a href="#" target="_blank">الدعم الفني</a>
+            <a href="Contact Us.php">الدعم الفني</a>
             <select id="specialty" class="manage" onchange="navigateToPage(this.value)">
                 <option>🧑 حسابك</option>
                 <option value="prof.php">ادارة الحساب</option>
