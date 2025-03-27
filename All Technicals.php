@@ -27,23 +27,7 @@
 </head>
 <body>
 
-<div class="header">
-        <img src="Resorces/Frame 16.png" alt="" class="logo">
-        <div class="link">
-            <a href="map.php">اقرب فني ليك</a>
-            <button onclick="window.location.href='index.php'">سجل الان</button>
-            <a href="homepage.php">الصفحة الرئيسية </a>
-            <a href="Technical Order.php">التخصصات</a>
-            <a href="shop.php">قطع الغيار</a>
-            <a href="Contact Us.php" target="_blank">الدعم الفني</a>
-            <select id="specialty" class="manage" onchange="navigateToPage(this.value)">
-                <option>🧑 حسابك</option>
-                <option value="prof.php">ادارة الحساب</option>
-                <option value="fav.php">المفضلة</option>
-                <option value="cart.php">عربة التسوق</option>
-            </select>
-        </div>
-    </div>
+    <?php include "header.html";?> <!-- header -->
 
     <form method="POST">
         <div class="search-section">

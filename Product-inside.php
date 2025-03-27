@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/footer.css">
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/fav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
@@ -15,47 +16,8 @@
 </head>
 <body>
 
-    <!--<img src="Resorces/background.png" class="background">-->
-    <header>
-        <div class="header-container">
-            <div class="left-section">
-                <img src="Resorces/Frame 16.png" class="san3a-logo">
-                <p class="com">
-                    .com
-                </p>
-            </div>
-
-            <div class="mid-section">
-                <button class="fav-and-cart">
-                    <img src="./Resorces/star.png" class="header-cart"
-                    onclick="window.location.href='shop.php';">
-                </button> 
+    <?php include "header.html";?> <!-- header -->
     
-                <button class="fav-and-cart">
-                    <img src="./Resorces/grocery-store.png" class="header-star"
-                    onclick="window.location.href='cart.php';">
-                </button>
-            </div>
-
-            <div class="right-section">
-                <button class="header-buttons">
-                    حالاً
-                </button>
-                <button class="header-buttons"
-                onclick="window.location.href='shop.php';">
-                    قطع الغيار
-                </button>
-                <button class="header-buttons">
-                    التخصصات
-                </button>
-                <button class="header-buttons">
-                    الصفحة الرئيسية
-                </button>
-            </div>
-        </div>
-    </header>
-    
-
     <main>
         <div class="product-inside-container">
             <div class="product-inside">
