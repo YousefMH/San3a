@@ -3,11 +3,11 @@
 
     if(isset($_POST["btnRegister"])){ // When button clicked
         if(isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) && isset($_POST["NID"]) && isset($_POST["pass"])) {// Checks if users entered the data in the inputs
-            $fname = $_POST["fname"];
-            $sname = $_POST["sname"];
-            $email = $_POST["email"];
-            $NID = $_POST["NID"];
-            $pass = $_POST["pass"];
+            $fname = test_input($_POST["fname"]);
+            $sname = test_input($_POST["sname"]);
+            $email = test_input($_POST["email"]);
+            $NID = test_input($_POST["NID"]);
+            $pass = test_input($_POST["pass"]);
             $hashedPassword = password_hash($pass, PASSWORD_DEFAULT); // Create password hash from the entered password
 
             $checkIfUserExitsQuery = "SELECT email FROM users WHERE email = '$email'";
@@ -31,6 +31,13 @@
             echo "<script>alert('You Must Fill All Inputs');</script>";
         }
     }
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    } //  function to sanitizes data user input
 ?>
 
 <!DOCTYPE html>

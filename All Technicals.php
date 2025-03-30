@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['ID'])){
+        header("Location:index.php");
+        exit();
+    }
+
     include "DBconn/conn.php";
 
     if(isset($_POST['BtnSearch'])){ 
@@ -14,7 +20,6 @@
                         AND technicians.area LIKE '$areaSelect'";
         $result = mysqli_query($conn,$SearchQuery);
     }
-
 ?>
 
 <!DOCTYPE html>

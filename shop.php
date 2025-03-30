@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(!isset($_SESSION['ID'])){
+    header("Location:index.php");
+    exit();
+}
+
+include("DBconn/conn.php");
+
+$sql="SELECT * FROM products";
+$result=mysqli_query($conn,$sql);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +24,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
     <title>San3a</title>
     <link rel="stylesheet" href="./style/shop.css">
+    <style>
+            a.info{
+            padding: 10px;
+            color: black;
+            border-radius: 10px;
+            background-color: #b97f07;
+            text-decoration: none;
+            }
+    a.info:hover{
+        background-color: #f0b22b;
+    }
+    </style>
 </head>
 <body>
 
@@ -20,6 +45,7 @@
     
 
     <main>
+<form  method="post">
         <div class="search-bar">
             <button class="search-button">
                 <p class="search-title">
@@ -31,302 +57,30 @@
         </div>
 
         <div class="products-container">
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button class="btn-cart">
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button >
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="products-container">
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="products-container">
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button class="car">
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-container">
-                <img src="Resorces/mfak.jpg" class="mafak">
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star-small.png">
-                    </button>
-                    <p>
-                        200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/shopping-cart.png">
-                    </button>
-                </div>
-            </div>
+            <?php
+                if(mysqli_num_rows($result) > 0){
+                    while($row=mysqli_fetch_assoc($result)){
+                        echo '<div class="product-container">
+                                <img src="Resorces/mfak.jpg" class="mafak">
+                                    <p class="title-card-bold">'.$row['name'].'</p>
+                                    <p class="title-card-light">'.$row['description'].'</p>
+                                    <div class="button-card" name="add_cart">
+                                        <button >
+                                            <img src="Resorces/star-small.png">
+                                        </button>
+                                        <p>'.$row["price"].'.LE</p>
+                                        <button>
+                                            <img src="Resorces/shopping-cart.png">
+                                        </button>
+                                    </div>
+                                    <div><a class="info" href="product-isnide">تفاصيل</a></div>                        
+                        </div>';
+                    }
+                }
+            ?>
         </div>
     </main>
-
+</form>
 
 
 
