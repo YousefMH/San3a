@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "DBconn/conn.php";
     if(!isset($_SESSION['ID'])){
         header("Location:index.php");
         exit();
