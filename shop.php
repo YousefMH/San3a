@@ -73,7 +73,7 @@ $result=mysqli_query($conn,$sql);
                                             <img src="Resorces/shopping-cart.png">
                                         </button>
                                     </div>
-                                    <div><a class="info" href="product-isnide">تفاصيل</a></div>                        
+                                    <div><a class="info" href="product-inside.php?id='.$row['product_id'].'">تفاصيل</a></div>                        
                         </div>';
                     }
                 }

@@ -4,6 +4,18 @@
         header("Location:index.php");
         exit();
     }
+    include("DBconn/conn.php");
+
+    $product_id=$_GET['id'];
+
+    echo "<p style='color:red'>$product_id</p>";
+
+    $sql="SELECT * FROM products WHERE product_id=$product_id";
+
+    $result=mysqli_query($conn,$sql);
+
+    $row=mysqli_fetch_assoc($result);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,99 +39,62 @@
     
     <main>
         <div class="product-inside-container">
-            <div class="product-inside">
-                <div>
-                    <img src="./Resorces/mfak.jpg" class="mafak-inside">
-
-                </div>
-                <p class="title-card-bold">
-                    مفك صليبة كبير
-                </p>
-                <p class="title-card-light">
-                    فولاذ عالى الجودة المقبض مريح 
-                </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-inside">
-                    <button class="fav-and-cart-button">
-                        <p>
-                            مفضلة
-                        </p>
-                        <img src="./Resorces/star.png" alt="">
-                    </button>
-                    <p class="price-text">
-                        200.LE
-                    </p>
-                    <button class="fav-and-cart-button">
-                        <p>
-                           أضف إلى العربة
-                        </p>
-                        <img src="./Resorces/grocery-store.png">
-                    </button>
-                </div>
-                <div class="button-inside-add-container">
-                    <div class="button-add">
+        <?php
+            echo    '<div class="product-inside">
                         <div>
-                            <button>
-                                +
-                            </button>
-
+                            <img src="./Resorces/mfak.jpg" class="mafak-inside">
                         </div>
-                        <div>
-                            <p>
-                                3
+                        <p class="title-card-bold">'.$row['name'].'</p>
+                        <p class="title-card-light">'.$row['description'].'</p>
+                        <div class="button-inside">
+                            <button class="fav-and-cart-button">
+                                <p>
+                                    مفضلة
+                                </p>
+                                <img src="./Resorces/star.png" alt="">
+                            </button>
+                            <p class="price-text">
+                                '.$row['price'].'
                             </p>
-
-                        </div>
-                        <div>
-                            <button>
-                                -
+                            <button class="fav-and-cart-button">
+                                <p>
+                                أضف إلى العربة
+                                </p>
+                                <img src="./Resorces/grocery-store.png">
                             </button>
-
                         </div>
-                    </div>
-                    
-                </div>
-                <div class="product-discretion">
-                    <p>
-                        مزايا المنتج
-                    </p>
-                    <ul>
-                        <li>
-                            تصميم مدمج ومريح وسهل الاستخدام
-                        </li>
-                        <li>
-                            دقة فائقة مع رأس محكم يمنع الانزلاق
-                        </li>
-                        <li>
-                            مصنوع من مواد متينة ومقاومة للصدأ
-                        </li>
-                        <li>
-                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات
-                        </li>
-                        <li>
-                            حجم صغير مناسب للسفر والتخزين السهل
-                        </li>
-                        <li>
-                            سعر اقتصادي مع أداء احترافي
-                        </li>
-                        <li>
-                            توصيل سريع وموثوق إلى باب المنزل
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                        <div class="button-inside-add-container">
+                            <div class="button-add">
+                                <div>
+                                    <button>
+                                        +
+                                    </button>
 
-        
-            
+                                </div>
+                                <div>
+                                    <p>
+                                        3
+                                    </p>
 
+                                </div>
+                                <div>
+                                    <button>
+                                        -
+                                    </button>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="product-discretion">
+                            <p>
+                                مزايا المنتج
+                            </p>
+                            '.$row['properties'].'
+                        </div>                
+                    </div>';
+        ?>
     </main>
-
-
-
-
     <footer>
         <div class="left-section-footer">
                 <img src="./Resorces/google-play.png" class="google-play">
