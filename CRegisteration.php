@@ -54,7 +54,7 @@ function test_input($data) {
 <div class="container">
     <form method="POST" onsubmit="return validatePassword()">
         <div class="register-container">
-            <h2>إنشاء حساب </h2>
+            <h2>  إنشاء حساب عميل </h2>
             <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
             <input type="text" placeholder="أدخل الاسم الثاني" name="sname" required>
             <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
