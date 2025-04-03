@@ -5,6 +5,19 @@
         header("Location:index.php");
         exit();
     }
+    include("DBconn/conn.php");
+
+    if(isset($_POST['submit'])){
+        $name=$_POST['name'];
+        $phone_num=$_POST['phone_num'];
+        $problem_message=$_POST['problem_message'];
+        $sql = "INSERT INTO contuct_us (name, phone_num, problem_message) 
+            VALUES ('$name', '$phone_num', '$problem_message')";
+    if(mysqli_query($conn,$sql)){
+        header("Location: home.php");
+        exit();
+    };
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,49 +40,33 @@
 
     <div class="support-form">
         <h2> هل تحتاج إلي المساعدة ؟</h2>
-        <form>
+        <form method="post">
             <div class="name">
-                <input type="text" placeholder="الاسم بالكامل" required>
+                <input type="text" placeholder="الاسم بالكامل" required name="name">
             </div>
 
             <div class="phone">
-                <input type="tel" placeholder="رقم الهاتف (يدعم واتس آب)" required>
+                <input type="tel" placeholder="رقم الهاتف (يدعم واتس آب)" required name="phone_num">
             </div>
 
 
             <div class="problem">
-                <textarea placeholder="اكتب لنا مشكلتك ..."></textarea>
+                <textarea placeholder="اكتب لنا مشكلتك ..." name="problem_message"></textarea>
             </div>
 
             <div class="submit">
-                <button type="submit">إرسال</button>
+                <button type="submit" name="submit">إرسال</button>
             </div>
-
         </form>
     </div>
 
-
-
-
-
-
-
-
     <script>
-
-
         function navigateToPage(value) {
             if (value) {
                 window.location.href = value;
             }
         }
             </script>
-
-
-
-
-
-
 
 </body>
 

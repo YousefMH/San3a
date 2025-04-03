@@ -18,7 +18,6 @@
         $result = mysqli_query($conn,$SearchQuery);
     }    
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,10 +45,9 @@
     <?php include "header.html"; ?> <!-- header -->
 
 
-    <div class="search-section">
+        <div class="search-section">
         <h2>اطلب فني</h2>
         <div class="filters">
-        <button onclick="searchTechnicians()" name="BtnSearch" type="submit">بحث</button>
             <select id="specialty">
                 <option value="" disabled selected>اختر التخصص</option>
                 <option value="نجار">نجار</option>
@@ -67,9 +65,9 @@
                 <option value="فيصل">فيصل</option>
                 <option value="6 أكتوبر">6 أكتوبر</option>
             </select>
+            <button type="button" onclick="searchTechnicians()">بحث</button>
         </div>
     </div>
-
     <div class="technicians">
         <h2>أفضل ما لدينا</h2>
 
@@ -83,170 +81,28 @@
 
         <div id="technicians-list" class="cards">
             <?php
-                if(mysqli_num_rows($result) > 0){
-                    while($row=mysqli_fetch_assoc($result)){
-                        echo '<div class="card">
-                                <div class="right">
-                                    <h3>'.$row['first_name'].'</h3>
-                                </div>
-                        
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="card">
+                            <div class="right">
+                                <h3>' . $row['first_name'] . ' ' . $row['last_name']. '</h3>
+                                <p>' .$row['specialty']. '</p>
+                                <p>' .$row['area']. '</p>
+                            </div>
+                            <div class="left">
+                                <a href="#"><img src="Resorces/man.png" alt="فني"></a>
+                                <div class="rating">⭐ 4.5</div>
+                            </div>
+                            <div class="middle">
+                                <a class="order" href="#">أطلب</a>
+                            </div>
                         </div>';
-                    }
                 }
-            
+            } else {
+                echo "<p>لا يوجد فنيين متاحين حسب البحث.</p>";
+            }
             ?>
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="right">
-                    <h3>كريم محمد</h3>
-                    <p>نجار</p>
-                    <p>الدقي</p>
-                </div>
-                <div class="left">
-                    <a href=""><img src="Resorces/man.png" alt="فني"></a>
-                    <div class="rating">4.5⭐</div>
-                </div>
-                <div class="middle">
-                    <a class="order" href="">أطلب</a>
-                </div>
-            </div>
-
-
-        </div>
-        <br> <br>
-    </div>
-
-
     <script src="/js/TechnicalOrder.js">
-
-
-
-
-
     </script>
 </body>
 
