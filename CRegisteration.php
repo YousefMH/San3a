@@ -51,15 +51,20 @@ function test_input($data) {
 </head>
 
 <body>
-    <form method="POST">
+<div class="container">
+    <form method="POST" onsubmit="return validatePassword()">
         <div class="register-container">
-            <h2>إنشاء حساب عميل</h2>
+            <h2>إنشاء حساب </h2>
             <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
             <input type="text" placeholder="أدخل الاسم الثاني" name="sname" required>
             <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
             <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
-            <input type="password" placeholder="أدخل كلمة المرور" name="pass" required>
-            <input type="password" placeholder="أعد إدخال كلمة المرور" name ="Cpass" required>
+            <div class="form-group">
+            <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
+            </div>
+            <div class="form-group">
+            <input type="password" placeholder="أعد إدخال كلمة المرور" id="password2" oninput="checkPasswordMatch()" name ="Cpass" required>
+            </div>
             <label class="upload-label">صورة البطاقة الشخصية (وجه)</label>
             <input type="file" accept="image/*">
             <label class="upload-label">صورة البطاقة الشخصية (الظهر)</label>
@@ -67,5 +72,48 @@ function test_input($data) {
             <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
         </div>
     </form>
+</div>
+<script>
+        function checkPasswordMatch() {
+            var password1 = document.getElementById("password1").value;
+            var password2 = document.getElementById("password2").value;
+            var message = document.getElementById("passwordMessage");
+
+            if (!message) {
+                message = document.createElement("p");
+                message.id = "passwordMessage";
+                document.getElementById("password2").parentNode.appendChild(message);
+            }
+
+            if (password1 === password2 && password1 !== "") {
+                message.style.color = "green";
+                message.textContent = "كلمتا المرور متطابقتان!";
+            } else if (password2 !== "") {
+                message.style.color = "red";
+                message.textContent = "كلمتا المرور غير متطابقتين!";
+            } else {
+                message.textContent = "";
+            }
+        }
+
+        function validatePassword() {
+            var password1 = document.getElementById("password1").value;
+            var password2 = document.getElementById("password2").value;
+
+            if (password1 !== password2) {
+                alert("كلمتا المرور غير متطابقتين! الرجاء التأكد من إدخال نفس كلمة المرور.");
+                return false;
+            }
+
+           
+            if (password1.length < 8) {
+                alert("كلمة المرور يجب أن تكون 8 أحرف على الأقل!");
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+
 </body>
 </html>
