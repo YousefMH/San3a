@@ -1,34 +1,25 @@
 Backend Tasks
 
 
-[DONE] product inside by id (show product details by ID)
+[DONE] Product inside by ID (show product details by ID)
+[DONE] Copy the filtration from all Technicals.php to Technical Order.php
+[DONE] Edit Technical Order.php href links and put the order button in each card, and make it work
+[DONE] Delete one of the technician show pages
+[DONE] Remove fav.php from the project and the navigation
+[DONE] Add a button in all technicals.php to place an order for a technician
+[DONE] Make some database updates queries in the prof.php to update user data and delete one of the prof buttons
+[DONE] Open the session in all files and check if the user has signed in using session["ID"]
+[DONE] edit Home.php and remove the hover on the background
+[DONE] Create password checker with JS to validate if the two password inputs have the same value in (CRegistration & TRegistration)
+[DONE] Create the insert for contact us
 
-[DONE] product search
+- Add button to cart.php and make it work + allow add to cart functionality in shop.php
+- Create an array that has all the cart items
+- Activate the add to cart functionality
+- (control.php), make it work as a technician dashboard
+- Create a new page (TOrder.php) as a front-end
+- make (TOrder.php) functionality work as database insertion into the orders table in the DB
+- Make the (control.php) get all orders from the DB and show them to the technician
+- Product search in (shop.php)
 
-[DONE] copy the filtration from all Technicals.php to Technical Order.php
 
-[DONE] edit Technical Order.php href links and put order button in each card and make it work
-
-[DONE] delete one of the technician show pages
-
-[DONE] remove fav.php from project and from navigation
-
-[DONE] add button in all technicals.php to make order of a technician
-
-[DONE] make some database updates queries in the prof.php to update user data and delete one of the prof buttons
-
-[DONE] open the session in all files and check if the user has signed in using session["ID"]
-
-[DONE] edit on Home.php and remove the hover on the background
-
-add button to cart.php and make it work + allow add to cart functionality in shop.php
-
-create something array that has all cart items
-
-activate add to cart functionality
-
-create the insert for contact us
-
-control.php make it work as technician dashboard
-
-create password checker with JS to validate if the two password inputs have the same value in (CRegistration & TRegistration)
