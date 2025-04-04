@@ -28,9 +28,12 @@ SET time_zone = "+00:00";
 --
 CREARE DATABASE san3a;
 USE san3a;
+<<<<<<< HEAD
 
 CREATE DATABASE San3a;
 USE San3a;
+=======
+>>>>>>> 50b2f6825c4841aaffcbc59a8c86f041f9395b07
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
