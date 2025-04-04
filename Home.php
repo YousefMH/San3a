@@ -30,7 +30,7 @@ if (!isset($_SESSION['ID'])) {
             يضمن محترفونا المهارة و الحلول السريعه وموثوقة و بأسعار معقولة لتلبية احتياجاتكم. <br>
             احجز خدمتك اليوم لتجربة خالية من المتاعب.
         </p>
-        <button class="btn" onclick="window.location.href='Technical Order.php'">أطلب فني</button>
+        <button class="btn" onclick="window.location.href='Technicians.php'">أطلب فني</button>
     </div>
     <script>
         function navigateToPage(value) {

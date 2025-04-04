@@ -1,10 +1,14 @@
 <?php
+
+    // THIS PAGE IS CANCELED AND USED TECHNICIAN.php INSTEAD OF THIS 
+
     session_start();
     if(!isset($_SESSION['ID'])){
         header("Location:index.php");
         exit();
     }
     include "DBconn/conn.php";
+    $result = "";
     if (isset($_POST['BtnSearch'])){
         $specialtySelect = isset($_POST['specialty']) ? $_POST['specialty'] : "%";
         $provinceSelect  = isset($_POST['province']) ? $_POST['province'] : "%";

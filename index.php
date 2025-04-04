@@ -10,11 +10,19 @@
             if(mysqli_num_rows( $result) > 0){
                 $row = mysqli_fetch_assoc($result);
                 $DbPassword = $row['password'];
+
                 if(password_verify($pass,$DbPassword)){ // Compare the hashed password in DB with given password in the login page (if true gives 1)
                     $_SESSION['ID'] = $row['user_id'];
                     $_SESSION['fname'] = $row['first_name'];
-                    header("Location:Home.php"); // Redirect to home page if the password is correct
-                    exit();
+                    $DbRole = $row['user_type'];
+
+                    if($DbRole == "client"){
+                        header("Location:Home.php"); // Redirect to home page if the password is correct and user is client
+                        exit();
+                    }else{
+                        header("Location:Control.php"); // Redirect to control page if the password is correct and user is technician
+                        exit();
+                    }
                 }else{
                     echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
                                 <strong>خطأ</strong> كلمة المرور غير صحيحة

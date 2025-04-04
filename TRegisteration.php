@@ -13,7 +13,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
         $result = mysqli_query($conn, $checkIfUserExitsQuery);
 
         if (mysqli_num_rows($result) == 0) {    // Checks the number of users exists in the DB, if there is no users with the same email: the code contenues/ if not: tells users that he is already exist
-            $CreateUserQuery = "INSERT INTO users(email,password,first_name,last_name) VALUES('$email','$hashedPassword','$fname','$sname')";
+            $CreateUserQuery = "INSERT INTO users(email,password,first_name,last_name,user_type) VALUES('$email','$hashedPassword','$fname','$sname','technician')";
             if (mysqli_query($conn, $CreateUserQuery)) {
                 $lastUserId = mysqli_insert_id($conn);
                 $CreateTechQuery = "INSERT INTO technicians(user_id) VALUES('$lastUserId')";
