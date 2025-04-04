@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2025 at 05:19 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 04, 2025 at 07:28 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,11 +26,13 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `categories`
 --
+CREARE DATABASE san3a;
+USE san3a;
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -50,7 +52,7 @@ CREATE TABLE `contact_us` (
   `name` varchar(250) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
   `problem_message` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact_us`
@@ -84,7 +86,7 @@ CREATE TABLE `messages` (
   `message_text` text NOT NULL,
   `is_read` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,7 @@ CREATE TABLE `notifications` (
   `related_id` int(11) DEFAULT NULL,
   `is_read` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,7 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `payment_method` enum('cash','credit_card','wallet') DEFAULT 'cash',
   `delivery_time` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE `order_details` (
   `category_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -156,15 +158,15 @@ CREATE TABLE `products` (
   `image_url` varchar(255) DEFAULT NULL,
   `min_stock_level` int(11) DEFAULT 1,
   `properties` varchar(2000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `name`, `description`, `price`, `stock`, `discount`, `created_at`, `image_url`, `min_stock_level`, `properties`) VALUES
-(1, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
-(5, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
+(1, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', '200.00', 50, '0.00', '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(5, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', '200.00', 50, '0.00', '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -180,7 +182,7 @@ CREATE TABLE `reviews` (
   `rating` decimal(3,2) NOT NULL CHECK (`rating` >= 0 and `rating` <= 5),
   `review_text` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -196,7 +198,7 @@ CREATE TABLE `subscriptions` (
   `expiration_date` date NOT NULL,
   `status` enum('active','expired','cancelled') DEFAULT 'active',
   `renewal_status` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -209,23 +211,46 @@ CREATE TABLE `technicians` (
   `rating` decimal(3,2) DEFAULT 5.00,
   `visit_price` decimal(10,2) DEFAULT NULL,
   `area` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT '6 أكتوبر',
-  `province` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'القاهرة',
+  `province` varchar(50) CHARACTER SET utf8 DEFAULT 'القاهرة',
   `specialty` varchar(50) DEFAULT 'كهربائي',
   `work_hours` text DEFAULT '9 to 5'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `technicians`
 --
 
 INSERT INTO `technicians` (`user_id`, `rating`, `visit_price`, `area`, `province`, `specialty`, `work_hours`) VALUES
-(23, 0.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(24, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(25, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(26, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(27, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(28, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
-(29, 5.00, NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5');
+(23, '0.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(24, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(25, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(26, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(27, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(28, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5'),
+(29, '5.00', NULL, '6 أكتوبر', 'القاهرة', 'كهربائي', '9 to 5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tech_orders`
+--
+
+CREATE TABLE `tech_orders` (
+  `order_ID` int(50) NOT NULL,
+  `order_tile` varchar(100) NOT NULL,
+  `order_date` date DEFAULT NULL,
+  `order_location` varchar(50) NOT NULL,
+  `order_price` int(50) NOT NULL DEFAULT 200,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tech_orders`
+--
+
+INSERT INTO `tech_orders` (`order_ID`, `order_tile`, `order_date`, `order_location`, `order_price`, `user_id`) VALUES
+(1, 'صيانة تكييف', '2025-04-05', 'أكتوبر', 200, 22),
+(2, 'عطل في الثلاجة', '2025-04-06', 'الهرم', 200, 22);
 
 -- --------------------------------------------------------
 
@@ -239,7 +264,7 @@ CREATE TABLE `transactions` (
   `amount` decimal(10,2) NOT NULL,
   `status` enum('pending','completed','failed') DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -253,7 +278,7 @@ CREATE TABLE `transaction_history` (
   `previous_status` enum('pending','completed','failed') NOT NULL,
   `new_status` enum('pending','completed','failed') NOT NULL,
   `change_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -278,7 +303,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` enum('active','suspended','banned') DEFAULT 'active',
   `profile_image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -289,8 +314,8 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `phone`, `pa
 (19, 'يوسف ', 'حسني', 'y@y.y', NULL, '0', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 00:54:27', 'active', NULL),
 (20, 'Yousef', '54', 'm@m.m', NULL, '$2y$10$txse0jfep8VEse66Hqh2euIRsK79lh7ElvVrvGenmfncXAhARwmGC', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 01:13:09', 'active', NULL),
 (21, 'Yousef', 'd', 'h@h.h', NULL, '$2y$10$mKQC3bRcxN/NxSPGyaHC7eAYyIjAbUPoq413d7WdMfw2im2Nis.OW', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 01:47:03', 'active', NULL),
-(22, 'yousef', 'hos', 'y@m.m', NULL, 'pa5y.tEMAsAWE', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 03:31:48', 'active', NULL),
-(23, 'المعلم', 'سيد', '12345@g.d', NULL, '$2y$10$r86w82yGFJVlZLYoyajav.MjONMEIJMh5cUY1A3mj4LueC.UHG8vi', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 04:47:14', 'active', NULL),
+(22, 'yousef', 'hos', 'y@m.m', '01551227246', 'pa5y.tEMAsAWE', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 03:31:48', 'active', NULL),
+(23, 'المعلم', 'سيد', 's@s.s', NULL, '$2y$10$r86w82yGFJVlZLYoyajav.MjONMEIJMh5cUY1A3mj4LueC.UHG8vi', NULL, NULL, NULL, 'technician', NULL, 0, 0, '2025-03-21 04:47:14', 'active', NULL),
 (24, 'df', 'df', 'd@d.h', NULL, '$2y$10$QzbGFDaFWAwUfMWXa5K2rurD1QaMvtE/EqZEzht4QK1Eumat3su2C', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 13:46:02', 'active', NULL),
 (25, 'df', 'fd', 'fdd@dd.kjkj', NULL, '$2y$10$fm8T.EBLEeH1ZG21JiIaBO4nf5wMQnai1yw53VDumCm01JM584aDq', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 13:47:59', 'active', NULL),
 (26, 'dfdf', 'fdfds', 'dydfd@md.m', NULL, '$2y$10$bvNyl155ZYhmH7..9I45S.IKRINCT0kiIMzbdxBkrSIOt0XTxREn.', NULL, NULL, NULL, 'client', NULL, 0, 0, '2025-03-21 14:41:15', 'active', NULL),
@@ -310,7 +335,7 @@ CREATE TABLE `wallets` (
   `user_id` int(11) NOT NULL,
   `balance` decimal(10,2) DEFAULT 0.00,
   `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -389,6 +414,12 @@ ALTER TABLE `subscriptions`
 --
 ALTER TABLE `technicians`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `tech_orders`
+--
+ALTER TABLE `tech_orders`
+  ADD PRIMARY KEY (`order_ID`);
 
 --
 -- Indexes for table `transactions`
@@ -479,6 +510,12 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `subscriptions`
   MODIFY `subscription_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tech_orders`
+--
+ALTER TABLE `tech_orders`
+  MODIFY `order_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transactions`

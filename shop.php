@@ -7,17 +7,18 @@ if(!isset($_SESSION['ID'])){
 
 include("DBconn/conn.php");
 
-$sql="SELECT * FROM products";
-$result=mysqli_query($conn,$sql);
+$sql = "SELECT * FROM products";
+$result = mysqli_query($conn,$sql);
 
 
 if(isset($_GET['search'])){
-    $searchquery=$_GET['search'];
+    if(isset($_GET['search'])){
+    $searchquery = $_GET['search'];
     $sql_search = "SELECT * FROM products WHERE name LIKE \"%" . $searchquery . "%\"";
     $result=mysqli_query($conn,$sql_search);
-}
-else{
-    echo  "product not available";
+    }
+}else{
+    echo "product not available";
 }
 
 

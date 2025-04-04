@@ -34,13 +34,6 @@ if (isset($_POST["btnRegister"])) { // When button clicked
         echo "<script>alert('You Must Fill All Inputs');</script>";
     }
 }
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-} //  function to sanitizes data user input
 ?>
 
 <!DOCTYPE html>

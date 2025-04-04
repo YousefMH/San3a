@@ -14,7 +14,8 @@
                 if(password_verify($pass,$DbPassword)){ // Compare the hashed password in DB with given password in the login page (if true gives 1)
                     $_SESSION['ID'] = $row['user_id'];
                     $_SESSION['fname'] = $row['first_name'];
-                    $DbRole = $row['user_type'];
+                    $_SESSION['role'] = $row['user_type'];
+                    $DbRole = $_SESSION['role'];
 
                     if($DbRole == "client"){
                         header("Location:Home.php"); // Redirect to home page if the password is correct and user is client

@@ -1,9 +1,25 @@
 <?php
     session_start();
+    include "DBconn/conn.php";
     if(!isset($_SESSION['ID'])){
         header("Location:index.php");
         exit();
     }
+
+    if($_SESSION['role'] == "client"){
+        header("Location:Home.php");
+        exit();
+    }
+
+    $SelectOrdersQuery = "SELECT 	
+                            tech_orders.order_tile,
+                            tech_orders.order_date,
+                            tech_orders.order_location,
+                            tech_orders.order_price,
+                            users.phone
+                            FROM tech_orders JOIN users ON users.user_id = tech_orders.user_id";
+
+    $result=mysqli_query($conn,$SelectOrdersQuery);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,17 +40,26 @@
     <?php include "header.html";?> <!-- header -->
 
     <div class="dashboard">
-        <h2>لوحة التحكم</h2><br><br>
         <div class="buttons">
-            <button class="button">الإشعارات</button>
-            <button class="button ">المواعيد المتاحة</button>
-            <button class="button active">الطلبات</button>
+            <button class="button active">الطلبات الجديدة</button>
         </div>
         <div class="requests">
-            <h3>طلبات جديدة</h3><br>
-            <div class="request-item">صيانة تكييف - 10 صباحًا</div>
-            <div class="request-item">تصليح غسالة - 2 مساءً</div>
-            <div class="request-item">فحص كهرباء - 5 مساءً</div>
+            <?php
+            if(mysqli_num_rows($result) > 0){
+                    while($row=mysqli_fetch_assoc($result)){
+                        echo '<div class="request-item"> 
+                        <strong>' . $row['order_tile'] . ' </strong>'.
+                        ' <br><br> موعد الطلب: ' . $row['order_date'] . 
+                        ' <br> مكان الطلب: ' . $row['order_location'] . 
+                        ' <br> سعر الطلب: ' . $row['order_price'] .
+                        ' <br> رقم التواصل الخاص بالعميل: ' . $row['phone'] .
+                        '</div>';
+                    }
+                }
+                else{
+                    echo "<p class='error' style='color:red'>لا توجد طلبات في الوقت الحالي.</p>";
+                }
+                ?>
         </div>
     </div>
 
@@ -69,18 +94,6 @@
             <button id="sendMessage">إرسال</button>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="./js/control.js"></script>
 </body>
 
