@@ -1,23 +1,20 @@
 <?php
-    session_start();
-    include "DBconn/conn.php";
-    if(!isset($_SESSION['ID'])){
-        header("Location:index.php");
-        exit();
-    }
-    include("DBconn/conn.php");
+session_start();
+include "DBconn/conn.php";
+if (!isset($_SESSION['ID'])) {
+    header("Location:index.php");
+    exit();
+}
+include("DBconn/conn.php");
 
-    if(isset($_POST['submit'])){
-        $name=$_POST['name'];
-        $phone_num=$_POST['phone_num'];
-        $problem_message=$_POST['problem_message'];
-        $sql = "INSERT INTO contuct_us (name, phone_num, problem_message) 
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $phone_num = $_POST['phone_num'];
+    $problem_message = $_POST['problem_message'];
+    $sql = "INSERT INTO contact_us (name, phone_num, problem_message) 
             VALUES ('$name', '$phone_num', '$problem_message')";
-    if(mysqli_query($conn,$sql)){
-        header("Location: home.php");
-        exit();
-    };
-    }
+    mysqli_query($conn, $sql);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +32,7 @@
 
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.html"; ?> <!-- header -->
 
 
     <div class="support-form">
@@ -55,7 +52,7 @@
             </div>
 
             <div class="submit">
-                <button type="submit" name="submit">إرسال</button>
+                <button type="submit" name="submit" onclick="show_alter()">إرسال</button>
             </div>
         </form>
     </div>
@@ -66,7 +63,11 @@
                 window.location.href = value;
             }
         }
-            </script>
+
+        function show_alter() {
+            alert("تم تسجيل مشكلتك بنجاح");
+        }
+    </script>
 
 </body>
 
