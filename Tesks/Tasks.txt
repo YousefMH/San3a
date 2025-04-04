@@ -13,14 +13,12 @@ Backend Tasks
 [DONE] Create password checker with JS to validate if the two password inputs have the same value in (CRegistration & TRegistration)
 [DONE] Create the insert for contact us
 [DONE] Product search in (shop.php)
+[DONE] (control.php), make it work as a technician dashboard
 
-- Add button to cart.php and make it work + allow add to cart functionality in shop.php
-- Create an array that has all the cart items
+- Make the (control.php) get all orders from the DB and show them to the technician
 - Activate the add to cart functionality
-- (control.php), make it work as a technician dashboard
 - Create a new page (TOrder.php) as a front-end
 - make (TOrder.php) functionality work as database insertion into the orders table in the DB
-- Make the (control.php) get all orders from the DB and show them to the technician
 - Add Choose Speciality in TRegisteration.php in the front end and connect it with backend
 
 
