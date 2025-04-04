@@ -12,6 +12,7 @@ Backend Tasks
 [DONE] edit Home.php and remove the hover on the background
 [DONE] Create password checker with JS to validate if the two password inputs have the same value in (CRegistration & TRegistration)
 [DONE] Create the insert for contact us
+[DONE] Product search in (shop.php)
 
 - Add button to cart.php and make it work + allow add to cart functionality in shop.php
 - Create an array that has all the cart items
@@ -20,6 +21,5 @@ Backend Tasks
 - Create a new page (TOrder.php) as a front-end
 - make (TOrder.php) functionality work as database insertion into the orders table in the DB
 - Make the (control.php) get all orders from the DB and show them to the technician
-- Product search in (shop.php)
 
 
