@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2025 at 02:29 PM
+-- Generation Time: Apr 04, 2025 at 05:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,38 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`category_id`, `name`) VALUES
 (1, 'مفكات ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `phone_num` varchar(20) NOT NULL,
+  `problem_message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `name`, `phone_num`, `problem_message`) VALUES
+(1, 'Yahia', '01117938642', 'Test'),
+(2, 'Yahia', '01117938642', '312412412412412'),
+(3, 'Yahia', '241244124', '4124124'),
+(4, 'fdsaf', 'fsdafsa', 'fsadfsa'),
+(5, 'fdsaf', 'fsdafsa', 'fsadfsa'),
+(6, 'fsadf', 'fsdafasd', 'fsdafdas'),
+(7, 'fsdafsa', 'fsadfsa', 'asfd'),
+(8, 'fdas', 'fsdaf', 'fdsaf'),
+(9, 'fsdaf', 'fsdaf', 'dsfadsaf'),
+(10, 'fsdaf', 'fsadfs', 'fsadfasd'),
+(11, 'fsdaf', 'sdafdas', 'sfsdaf'),
+(12, 'fsadf', 'fsadfs', 'sfadf'),
+(13, 'sdfsa', 'fsdafd', 'sfaddsaf');
 
 -- --------------------------------------------------------
 
@@ -122,16 +154,17 @@ CREATE TABLE `products` (
   `discount` decimal(5,2) DEFAULT 0.00,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `image_url` varchar(255) DEFAULT NULL,
-  `min_stock_level` int(11) DEFAULT 1
+  `min_stock_level` int(11) DEFAULT 1,
+  `properties` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `category_id`, `name`, `description`, `price`, `stock`, `discount`, `created_at`, `image_url`, `min_stock_level`) VALUES
-(1, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30),
-(5, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30);
+INSERT INTO `products` (`product_id`, `category_id`, `name`, `description`, `price`, `stock`, `discount`, `created_at`, `image_url`, `min_stock_level`, `properties`) VALUES
+(1, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(5, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', NULL, 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -292,6 +325,12 @@ ALTER TABLE `categories`
   ADD KEY `name_2` (`name`);
 
 --
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -392,6 +431,12 @@ ALTER TABLE `wallets`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `messages`
