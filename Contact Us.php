@@ -7,7 +7,7 @@ if (!isset($_SESSION['ID'])) {
 }
 include("DBconn/conn.php");
 
-$name=$phone_num=$problem_message="";
+$name=$phone_num=$problem_message=$submit_message="";
 
 $name_err=$phone_err=$problem_message_err="";
 
@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
         $name=$_POST['name'];
         $phone_num=$_POST['phone_num'];
         $problem_message=$_POST['problem_message'];
+        $submit_message='<p class="message">تم تسجيل مشكلتك بنجاح</p>';
     }
 }
 ?>
@@ -43,6 +44,10 @@ if (isset($_POST['submit'])) {
             p.error{
                 color: red;
 
+            }
+            p.message{
+                color:green;
+                text-align: center;
             }
         </style>
 </head>
@@ -73,6 +78,7 @@ if (isset($_POST['submit'])) {
 
             <div class="submit">
                 <button type="submit" name="submit" >إرسال</button>
+                <?php echo $submit_message ?>
             </div>
         </form>
     </div>
