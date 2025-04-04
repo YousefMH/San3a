@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
+CREATE DATABASE San3a;
+USE San3a;
+
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
