@@ -21,5 +21,6 @@ Backend Tasks
 - Create a new page (TOrder.php) as a front-end
 - make (TOrder.php) functionality work as database insertion into the orders table in the DB
 - Make the (control.php) get all orders from the DB and show them to the technician
+- Add Choose Speciality in TRegisteration.php in the front end and connect it with backend
 
 
