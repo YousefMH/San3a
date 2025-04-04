@@ -5,10 +5,7 @@ if (!isset($_SESSION['ID'])) {
     header("Location:index.php");
     exit();
 }
-<<<<<<< HEAD:Contact Us.php
-include("DBconn/conn.php");
-=======
->>>>>>> c6b1684 (logout.php added and edited the index redirect (if c - > home, if t - > control)):Contact-Us.php
+
 
 $name=$phone_num=$problem_message=$submit_message="";
 
