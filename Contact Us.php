@@ -7,13 +7,24 @@ if (!isset($_SESSION['ID'])) {
 }
 include("DBconn/conn.php");
 
+$name=$phone_num=$problem_message="";
+
+$name_err=$phone_err=$problem_message_err="";
+
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $phone_num = $_POST['phone_num'];
-    $problem_message = $_POST['problem_message'];
-    $sql = "INSERT INTO contact_us (name, phone_num, problem_message) 
-            VALUES ('$name', '$phone_num', '$problem_message')";
-    mysqli_query($conn, $sql);
+    if(empty($_POST['name'])){
+        $name_err='<p class="error">الرجاء ادخال الاسم </p>';
+    }
+    if(empty($_POST['phone_num']) || !is_numeric($_POST['phone_num']) ){
+        $phone_err='<p class="error">الرجاء ادخال رقم الهاتف </p>';
+    }
+    if(empty($_POST['problem_message'])){
+        $problem_message_err='<p class="error">الرجاء ادخال المشكلة </p>';
+    }else{
+        $name=$_POST['name'];
+        $phone_num=$_POST['phone_num'];
+        $problem_message=$_POST['problem_message'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -28,6 +39,12 @@ if (isset($_POST['submit'])) {
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <style>
+            p.error{
+                color: red;
+
+            }
+        </style>
 </head>
 
 <body>
@@ -40,19 +57,22 @@ if (isset($_POST['submit'])) {
         <form method="post">
             <div class="name">
                 <input type="text" placeholder="الاسم بالكامل" required name="name">
+                <?php echo $name_err ?>
             </div>
 
             <div class="phone">
                 <input type="tel" placeholder="رقم الهاتف (يدعم واتس آب)" required name="phone_num">
+                <?php echo $phone_err ?>
             </div>
 
 
             <div class="problem">
                 <textarea placeholder="اكتب لنا مشكلتك ..." name="problem_message"></textarea>
+                <?php echo $problem_message_err ?>
             </div>
 
             <div class="submit">
-                <button type="submit" name="submit" onclick="show_alter()">إرسال</button>
+                <button type="submit" name="submit" >إرسال</button>
             </div>
         </form>
     </div>
@@ -62,10 +82,6 @@ if (isset($_POST['submit'])) {
             if (value) {
                 window.location.href = value;
             }
-        }
-
-        function show_alter() {
-            alert("تم تسجيل مشكلتك بنجاح");
         }
     </script>
 
