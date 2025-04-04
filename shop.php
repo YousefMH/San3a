@@ -9,6 +9,20 @@ include("DBconn/conn.php");
 
 $sql="SELECT * FROM products";
 $result=mysqli_query($conn,$sql);
+
+
+if(isset($_GET['search'])){
+    $searchquery=$_GET['search'];
+    $sql_search = "SELECT * FROM products WHERE name LIKE \"%" . $searchquery . "%\"";
+    $result=mysqli_query($conn,$sql_search);
+}
+else{
+    echo  "product not available";
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +45,19 @@ $result=mysqli_query($conn,$sql);
             border-radius: 10px;
             background-color: #b97f07;
             text-decoration: none;
+            margin-top: 100px;
             }
-    a.info:hover{
-        background-color: #f0b22b;
-    }
+            a.info:hover{
+                background-color: #f0b22b;
+        }
+
+            .error{
+            color: red;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -45,15 +68,15 @@ $result=mysqli_query($conn,$sql);
     
 
     <main>
-<form  method="post">
+<form  method="get">
         <div class="search-bar">
-            <button class="search-button">
+            <button class="search-button" type="submit">
                 <p class="search-title">
                     إبحث
                 </p>
                 <img src="Resorces/magnifying-glass.png" class="magnifier">
             </button>
-            <input type="text" placeholder="إسم المنتج" class="product-name">
+            <input type="text" placeholder="إسم المنتج" class="product-name" name="search">
         </div>
 
         <div class="products-container">
@@ -73,9 +96,12 @@ $result=mysqli_query($conn,$sql);
                                             <img src="Resorces/shopping-cart.png">
                                         </button>
                                     </div>
-                                    <div><a class="info" href="product-inside.php?id='.$row['product_id'].'">تفاصيل</a></div>                        
+                                    <div><a class="info"  href="product-inside.php?id='.$row['product_id'].'">تفاصيل</a></div>                        
                         </div>';
                     }
+                }
+                else{
+                    echo "<p class='error' style='color:red'>لا توجد نتائج.</p>";
                 }
             ?>
         </div>
