@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url(../Resorces/background.jpg);
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background-color: rgba(255, 174, 0, 0.7);
+    border-radius: 0 0 20px 20px;
+    height: 50px;
+}
+
+.logo {
+    width: 99px;
+    padding: 0px 40px;
+}
+
+.link {
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.link a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.link a:hover {
+    color: #000000;
+    background-color: #f0b22b;
+    border-radius: 35px;
+}
+
+.link button {
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    direction: rtl;
+    text-align: right;
+    margin-top: auto;
+    width: 100%;
+    max-width: 860px;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 15px;
+}
+
+input {
+    font-family: "Tajawal", sans-serif;
+    justify-content: center;
+    flex-direction: column;
+    width: 790px;
+    max-width: 800px;
+    padding: 15px;
+    border: 2px solid #ffae00;
+    border-radius: 15px;
+    background: #444;
+    color: white;
+    font-size: 16px;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 900px;
+    background: #333;
+    border: 2px solid #ffae00;
+    padding: 1px 20px;
+    border-radius: 30px;
+    height: 550px;
+}
+
+
+h2 {
+    color: white;
+    padding: 0px;
+    margin: 10px;
+}
+
+
+input::placeholder {
+    text-align: right;
+    direction: rtl;
+    color: #bbb
+}
+
+button {
+    font-family: "Tajawal", sans-serif;
+    background-color: #f4a024;
+    color: black;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
