@@ -7,25 +7,26 @@ if (!isset($_SESSION['ID'])) {
 
 include "DBconn/conn.php";
 
-// Get technician_id from URL
+// التحقق من وجود technician_id في الرابط
 if (!isset($_GET['technician_id'])) {
     die("معرّف الفني غير موجود");
 }
 
-$technician_id = intval($_GET['technician_id']);
+$technician_id = (int)$_GET['technician_id'];
 
-// Fetch technician info from database
-$stmt = $conn->prepare("SELECT users.first_name, users.last_name, technicians.visit_price 
-                        FROM technicians 
-                        JOIN users ON users.user_id = technicians.user_id 
-                        WHERE technicians.user_id = ?");
-$stmt->bind_param("i", $technician_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$technician = $result->fetch_assoc();
-$stmt->close();
+// تنفيذ استعلام SQL للحصول على بيانات الفني
+$sql = "SELECT users.first_name, users.last_name, technicians.visit_price 
+        FROM technicians 
+        JOIN users ON users.user_id = technicians.user_id 
+        WHERE technicians.user_id = $technician_id 
+        LIMIT 1";
 
-if (!$technician) {
+$result = mysqli_query($conn, $sql);
+
+// التحقق من وجود نتيجة
+if (mysqli_num_rows($result) > 0) {
+    $technician = mysqli_fetch_assoc($result);
+} else {
     die("الفني غير موجود");
 }
 
