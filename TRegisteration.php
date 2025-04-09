@@ -33,7 +33,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
     } else {
         echo "<script>alert('You Must Fill All Inputs');</script>";
     }
-    
+
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -63,14 +63,14 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
             <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
             <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" oninput="checkPasswordMatch()" name="Cpass" required>
-            <!-- <select name="specialty" id="specialty" required>
+            <select name="specialty" id="specialty" required>
                 <option value=" " disabled selected="">اختر التخصص</option>
                 <option value="كهربائي">كهربائي</option>
                 <option value="نجار">نجار</option>
                 <option value="سباك">سباك</option>
                 <option value="حداد">حداد</option>
                 <option value="نقاش">نقاش</option>
-            </select> -->
+            </select> 
             <label class="upload-label">صورة البطاقة الشخصية (وجه)</label>
             <input type="file" accept="image/*">
             <label class="upload-label">صورة البطاقة الشخصية (الظهر)</label>
