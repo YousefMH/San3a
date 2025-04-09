@@ -1,6 +1,13 @@
 <?php
     include "DBconn/conn.php";
 
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+        } //  function to sanitizes data user input
+
     if(isset($_POST["btnRegister"])){ // When button clicked
         if(isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) && isset($_POST["NID"]) && isset($_POST["pass"])) {// Checks if users entered the data in the inputs
             $fname = test_input($_POST["fname"]);
@@ -31,13 +38,6 @@
             echo "<script>alert('You Must Fill All Inputs');</script>";
         }
     }
-
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-    } //  function to sanitizes data user input
 ?>
 
 <!DOCTYPE html>
@@ -65,10 +65,6 @@ function test_input($data) {
             <div class="form-group">
             <input type="password" placeholder="أعد إدخال كلمة المرور" id="password2" oninput="checkPasswordMatch()" name ="Cpass" required>
             </div>
-            <label class="upload-label">صورة البطاقة الشخصية (وجه)</label>
-            <input type="file" accept="image/*">
-            <label class="upload-label">صورة البطاقة الشخصية (الظهر)</label>
-            <input class="upload" type="file" accept="image/*">
             <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
         </div>
     </form>
@@ -104,13 +100,6 @@ function test_input($data) {
                 alert("كلمتا المرور غير متطابقتين! الرجاء التأكد من إدخال نفس كلمة المرور.");
                 return false;
             }
-
-           
-            if (password1.length < 8) {
-                alert("كلمة المرور يجب أن تكون 8 أحرف على الأقل!");
-                return false;
-            }
-
             return true; 
         }
     </script>

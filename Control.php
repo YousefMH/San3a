@@ -10,14 +10,16 @@
         header("Location:Home.php");
         exit();
     }
-
+    $currentID = $_SESSION['ID'];
     $SelectOrdersQuery = "SELECT 	
-                            tech_orders.order_tile,
+                            tech_orders.order_title,
                             tech_orders.order_date,
                             tech_orders.order_location,
                             tech_orders.order_price,
-                            users.phone
-                            FROM tech_orders JOIN users ON users.user_id = tech_orders.user_id";
+                            tech_orders.user_phone
+                        FROM tech_orders
+                        JOIN technicians ON technicians.user_id = tech_orders.tech_id
+                        WHERE tech_orders.tech_id = $currentID";
 
     $result=mysqli_query($conn,$SelectOrdersQuery);
 ?>
@@ -46,13 +48,13 @@
         <div class="requests">
             <?php
             if(mysqli_num_rows($result) > 0){
-                    while($row=mysqli_fetch_assoc($result)){
+                    while($row = mysqli_fetch_assoc($result)){
                         echo '<div class="request-item"> 
-                        <strong>' . $row['order_tile'] . ' </strong>'.
+                        <strong>' . $row['order_title'] . ' </strong>'.
                         ' <br><br> موعد الطلب: ' . $row['order_date'] . 
                         ' <br> مكان الطلب: ' . $row['order_location'] . 
                         ' <br> سعر الطلب: ' . $row['order_price'] .
-                        ' <br> رقم التواصل الخاص بالعميل: ' . $row['phone'] .
+                        ' <br> رقم التواصل الخاص بالعميل: ' . $row['user_phone'] .
                         '</div>';
                     }
                 }

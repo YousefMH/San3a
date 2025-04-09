@@ -1,12 +1,23 @@
 <?php
 include "DBconn/conn.php";
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    } //  function to sanitize data user input
+
+
 if (isset($_POST["btnRegister"])) { // When button clicked
-    if (isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) && isset($_POST["NID"]) && isset($_POST["pass"])) { // Checks if users entered the data in the inputs
+    if (isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) && isset($_POST["NID"]) && isset($_POST["pass"]) && isset($_POST["specialty"]) && isset($_POST["area"])) { // Checks if users entered the data in the inputs
         $fname = test_input($_POST["fname"]);
         $sname = test_input($_POST["sname"]);
         $email = test_input($_POST["email"]);
         $NID = test_input($_POST["NID"]);
         $pass =  test_input($_POST["pass"]);
+        $specialty = test_input($_POST["specialty"]);
+        $area = test_input($_POST["area"]);
         $hashedPassword = password_hash($pass, PASSWORD_DEFAULT); // Create password hash from the entered password
 
         $checkIfUserExitsQuery = "SELECT email FROM users WHERE email = '$email'";
@@ -16,7 +27,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             $CreateUserQuery = "INSERT INTO users(email,password,first_name,last_name,user_type) VALUES('$email','$hashedPassword','$fname','$sname','technician')";
             if (mysqli_query($conn, $CreateUserQuery)) {
                 $lastUserId = mysqli_insert_id($conn);
-                $CreateTechQuery = "INSERT INTO technicians(user_id) VALUES('$lastUserId')";
+                $CreateTechQuery = "INSERT INTO technicians(user_id,specialty,area) VALUES('$lastUserId','$specialty','$area')";
                 if (mysqli_query($conn, $CreateTechQuery)) {
                     header("Location: index.php");
                     exit();
@@ -28,18 +39,14 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
                 <strong>مستخدم موجود</strong> لديك بالفعل حساب مسجل في موقعنا 
                 <a href="index.php" style="color:rgb(90, 31, 255); text-decoration: none; font-weight: bold;">سجل دخول من هنا: </a>
-            </div>';
+                </div>';
         }
     } else {
-        echo "<script>alert('You Must Fill All Inputs');</script>";
+        echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
+        <strong>خطأ</strong> تأكد من إدخال جميع البيانات بشكل صحيح
+        </div>';
     }
 
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-        } //  function to sanitizes data user input
 }
 ?>
 
@@ -64,17 +71,21 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
             <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" oninput="checkPasswordMatch()" name="Cpass" required>
             <select name="specialty" id="specialty" required>
-                <option value=" " disabled selected="">اختر التخصص</option>
+                <option value="" disabled selected="">اختر التخصص</option>
                 <option value="كهربائي">كهربائي</option>
                 <option value="نجار">نجار</option>
                 <option value="سباك">سباك</option>
                 <option value="حداد">حداد</option>
                 <option value="نقاش">نقاش</option>
             </select> 
-            <label class="upload-label">صورة البطاقة الشخصية (وجه)</label>
-            <input type="file" accept="image/*">
-            <label class="upload-label">صورة البطاقة الشخصية (الظهر)</label>
-            <input class="upload" type="file" accept="image/*">
+            <select name="area" id="area" required>
+                <option value="" disabled selected="">اختر التخصص</option>
+                <option value="أكتوبر">أكتوبر</option>
+                <option value="الهرم">الهرم</option>
+                <option value="التجمع الخامس">التجمع الخامس</option>
+                <option value="مدينة نصر">مدينة نصر</option>
+                <option value="العاشر من رمضان">العاشر من رمضان</option>
+            </select> 
             <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
 
         </div>

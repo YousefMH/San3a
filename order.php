@@ -7,12 +7,13 @@ if (!isset($_SESSION['ID'])) {
 
 include "DBconn/conn.php";
 
-// التحقق من وجود technician_id في الرابط
+// // التحقق من وجود technician_id في الرابط
 if (!isset($_GET['technician_id'])) {
     die("معرّف الفني غير موجود");
 }
 
-$technician_id = (int)$_GET['technician_id'];
+$technician_id = $_GET['technician_id'];
+$currentID = $_SESSION['ID'];
 
 // تنفيذ استعلام SQL للحصول على بيانات الفني
 $sql = "SELECT users.first_name, users.last_name, technicians.visit_price 
@@ -32,7 +33,6 @@ if (mysqli_num_rows($result) > 0) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['ID'];
     $service_type = $_POST['serviceType'];
     $appointment_date = $_POST['appointmentDate'];
     $address = $_POST['address'];
@@ -42,17 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($service_type) || empty($appointment_date) || empty($address) || empty($phone)) {
         $error = "يرجى ملء جميع الحقول.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO orders (user_id, technician_id, service_type, appointment_date, address, phone, status) 
-                                VALUES (?, ?, ?, ?, ?, ?, 'pending')");
-        $stmt->bind_param("iissss", $user_id, $technician_id, $service_type, $appointment_date, $address, $phone);
-
-        if ($stmt->execute()) {
+        $CreteOrderQuiery = "INSERT INTO tech_orders (user_id, tech_id, order_title, address, user_phone) 
+                            VALUES ($currentID, $technician_id, '$service_type', '$address', '$phone')";
+        if (mysqli_query($conn, $CreteOrderQuiery)) {
             $success = "تم إرسال الطلب بنجاح!";
         } else {
-            $error = "حدث خطأ أثناء إرسال الطلب.";
+            $error = "حدث خطأ أثناء إرسال الطلب: " . mysqli_error($conn);
         }
-
-        $stmt->close();
     }
 }
 ?>

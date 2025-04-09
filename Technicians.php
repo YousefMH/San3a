@@ -4,11 +4,13 @@
         header("Location:index.php");
         exit();
     }
-
     include "DBconn/conn.php";
 
+    $selectLocationsQuiery = "SELECT area FROM technicians";
+    $selectedLocations = mysqli_query($conn,$selectLocationsQuiery);
+    $selectedSpecialtiesQuiery = "SELECT specialty FROM technicians";
+    $selectedSpecialties = mysqli_query($conn,$selectedSpecialtiesQuiery);
     if(isset($_POST['BtnSearch'])){ 
-    
         $specialtySelect = isset($_POST['specialty']) ? $_POST['specialty'] : "%";
         $provinceSelect  = isset($_POST['province']) ? $_POST['province'] : "%";
         $areaSelect      = isset($_POST['area']) ? $_POST['area'] : "%";
@@ -19,7 +21,12 @@
                         AND technicians.province LIKE '$provinceSelect' 
                         AND technicians.area LIKE '$areaSelect'";
         $result = mysqli_query($conn,$SearchQuery);
-    }
+    }else{
+        $SearchQuery = "SELECT users.first_name,users.last_name,users.user_id,technicians.specialty,technicians.province,technicians.area,technicians.visit_price,technicians.work_hours
+        FROM technicians 
+        JOIN users ON users.user_id = technicians.user_id";
+    $result = mysqli_query($conn,$SearchQuery);    
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +34,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كل التخصصات</title>
+    <title>اطلب فني</title>
     <link rel="stylesheet" href="./style/All Technicals.css">
 </head>
 <body>
@@ -41,21 +48,26 @@
                 <button onclick="searchTechnicians()" name="BtnSearch" type="submit">بحث</button>
                 <select id="specialty" name="specialty">
                 <option value=" " disabled selected>اختر التخصص</option>
-                <option value="كهربائي">كهربائي</option>
-                <option value="نجار">نجار</option>
-                <option value="سباك">سباك</option>
-                <option value="حداد">حداد</option>
-                <option value="نقاش">نقاش</option>
-            </select>
-                <select id="province" name="province">
+                <?php 
+                if(isset($selectedSpecialties)){
+                    while ($row = mysqli_fetch_assoc($selectedSpecialties)) {
+                        echo  '<option value=' . $row["specialty"] . '>' . $row["specialty"] . '</option>';
+                    }
+                }?>
+                </select>
+            <select id="province" name="province">
                 <option disabled selected>اختيار المحافظة</option>
                 <option value="القاهرة">القاهرة</option>
                 <option value="الإسكندرية">الإسكندرية</option>
             </select>
-                <select id="area" name="area">
+            <select id="area" name="area">
                 <option disabled selected>اختيار المنطقة</option>
-                <option value="فيصل">فيصل</option>
-                <option value="6 أكتوبر" >6 أكتوبر</option>
+                <?php 
+                if(isset($selectedLocations)){
+                    while ($row = mysqli_fetch_assoc($selectedLocations)) {
+                        echo  '<option value=' . $row["area"] . '>' . $row["area"] . '</option>';
+                    }
+                }?>
             </select>
             </div>
         </div>
@@ -65,14 +77,11 @@
         <h2>أفضل ما لدينا</h2>
       
         <div class="categories">
-            <a href="#"><button>كل التخصصات</button></a>
-
         </div>
 
         <div id="technicians-list" class="cards">
             
         <?php
-
             if(isset($result)){
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<div class="card">
@@ -83,10 +92,10 @@
 
                         <div class="left ">
                             <h3>'. $row["first_name"] . ' ' . $row["last_name"] . '</h3>
-                            <p>' . $row["specialty"] . '</p>
-                            <p>' . $row["area"] . '</p>
-                            <p>' . $row["visit_price"] . '</p>
-                            <p>' . $row["work_hours"] . 'ساعات العمل</p>
+                            <p>التخصص: ' . $row["specialty"] . '</p>
+                            <p>المنطقة: ' . $row["area"] . '</p>
+                            <p>سعر الزيارة: ' . $row["visit_price"] . ' جنيه</p>
+                            <p>ساعات العمل: ' . $row["work_hours"] . '</p>
                         </div>
                     </div>';
                 }
