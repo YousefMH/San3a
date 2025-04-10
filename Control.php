@@ -5,7 +5,7 @@
         header("Location:index.php");
         exit();
     }
-
+    
     if($_SESSION['role'] == "client"){
         header("Location:Home.php");
         exit();

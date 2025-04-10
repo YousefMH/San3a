@@ -12,13 +12,9 @@ $result = mysqli_query($conn,$sql);
 
 
 if(isset($_GET['search'])){
-    if(isset($_GET['search'])){
     $searchquery = $_GET['search'];
-    $sql_search = "SELECT * FROM products WHERE name LIKE \"%" . $searchquery . "%\"";
-    $result=mysqli_query($conn,$sql_search);
-    }
-}else{
-    echo "product not available";
+    $sql_search = "SELECT * FROM products WHERE name LIKE '%" . $searchquery . "%'";
+    $result = mysqli_query($conn, $sql_search);
 }
 
 
@@ -81,7 +77,7 @@ if(isset($_GET['search'])){
                 if(mysqli_num_rows($result) > 0){
                     while($row=mysqli_fetch_assoc($result)){
                         echo '<div class="product-container">
-                                <img src="Resorces/mfak.jpg" class="mafak">
+                                <img src="'.$row['image_url'].'" class="mafak">
                                     <p class="title-card-bold">'.$row['name'].'</p>
                                     <p class="title-card-light">'.$row['description'].'</p>
                                     <div class="button-card" name="add_cart">
@@ -98,9 +94,9 @@ if(isset($_GET['search'])){
                     }
                 }
                 else{
-                    echo "<p class='error' style='color:red'>لا توجد نتائج.</p>";
+                    echo "<p class='error'>لا توجد نتائج.</p>";
                 }
-            ?>
+                ?>
         </div>
     </main>
 </form>

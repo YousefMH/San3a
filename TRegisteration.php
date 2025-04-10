@@ -58,6 +58,20 @@ if (isset($_POST["btnRegister"])) { // When button clicked
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فني</title>
     <link rel="stylesheet" href="./style/Technical.css">
+    <style>
+        .menu{
+            margin: 10px;
+            padding: 10px;
+            background-color: #f0b22b;
+            border: none;
+            padding: 5px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: "Tajawal", sans-serif;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -70,7 +84,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
             <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
             <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" oninput="checkPasswordMatch()" name="Cpass" required>
-            <select name="specialty" id="specialty" required>
+            <select name="specialty" id="specialty" required class="menu">
                 <option value="" disabled selected="">اختر التخصص</option>
                 <option value="كهربائي">كهربائي</option>
                 <option value="نجار">نجار</option>
@@ -78,8 +92,8 @@ if (isset($_POST["btnRegister"])) { // When button clicked
                 <option value="حداد">حداد</option>
                 <option value="نقاش">نقاش</option>
             </select> 
-            <select name="area" id="area" required>
-                <option value="" disabled selected="">اختر التخصص</option>
+            <select name="area" id="area" required class="menu">
+                <option value="" disabled selected="">اختر المنطقة</option>
                 <option value="أكتوبر">أكتوبر</option>
                 <option value="الهرم">الهرم</option>
                 <option value="التجمع الخامس">التجمع الخامس</option>

@@ -8,7 +8,6 @@
 
     $product_id=$_GET['id'];
 
-    echo "<p style='color:red'>$product_id</p>";
 
     $sql="SELECT * FROM products WHERE product_id=$product_id";
 
@@ -42,7 +41,7 @@
         <?php
             echo    '<div class="product-inside">
                         <div>
-                            <img src="./Resorces/mfak.jpg" class="mafak-inside">
+                            <img src="'.$row['image_url'].'" class="mafak-inside">
                         </div>
                         <p class="title-card-bold">'.$row['name'].'</p>
                         <p class="title-card-light">'.$row['description'].'</p>

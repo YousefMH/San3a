@@ -6,6 +6,7 @@ if (!isset($_SESSION['ID'])) {
     exit();
 }
 
+
 $name=$phone_num=$problem_message=$submit_message="";
 
 $name_err=$phone_err=$problem_message_err="";

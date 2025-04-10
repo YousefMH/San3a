@@ -4,6 +4,7 @@
         header("Location:index.php");
         exit();
     }
+
     include "DBconn/conn.php";
 
     $selectLocationsQuiery = "SELECT area FROM technicians";
@@ -35,7 +36,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلب فني</title>
-    <link rel="stylesheet" href="./style/All Technicals.css">
+    <link rel="stylesheet" href="./style/Technical Order.css">
+    <style>
+        a.order {
+            padding: 10px;
+            color: black;
+            border-radius: 10px;
+            background-color: #b97f07;
+            text-decoration: none;
+        }
+
+        a.order:hover {
+            background-color: #f0b22b;
+        }
+    </style>
 </head>
 <body>
 
@@ -85,19 +99,19 @@
             if(isset($result)){
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<div class="card">
-                        <div class="right">
-                            <a href=" "><img src="Resorces/man.png " alt="فني "></a>
-                            <div class="rating ">⭐⭐⭐⭐⭐</div>
-                        </div>
-
-                        <div class="left ">
-                            <h3>'. $row["first_name"] . ' ' . $row["last_name"] . '</h3>
-                            <p>التخصص: ' . $row["specialty"] . '</p>
-                            <p>المنطقة: ' . $row["area"] . '</p>
-                            <p>سعر الزيارة: ' . $row["visit_price"] . ' جنيه</p>
-                            <p>ساعات العمل: ' . $row["work_hours"] . '</p>
-                        </div>
-                    </div>';
+                            <div class="right">
+                                <h3>' . $row['first_name'] . ' ' . $row['last_name'] . '</h3>
+                                <p>' . $row['specialty'] . '</p>
+                                <p>' . $row['area'] . '</p>
+                            </div>
+                            <div class="left">
+                                <a href="#"><img src="Resorces/man.png" alt="فني"></a>
+                                <div class="rating">⭐ 4.5</div>
+                            </div>
+                            <div class="middle">
+                                <a class="order" href="order.php?id='.$row['user_id'].'">أطلب</a>
+                            </div>
+                        </div>';
                 }
             }
         ?>

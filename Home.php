@@ -4,6 +4,9 @@ if (!isset($_SESSION['ID'])) {
     header("Location:index.php");
     exit();
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,9 @@ if (!isset($_SESSION['ID'])) {
 
 <body>
 
-    <?php include "header.html"; ?> <!-- header -->
+    <?php include "header.html"; ?>
+    <!-- header -->
+    
     <div dir="rtl" class="now" style="cursor:auto;">
         <h1>
             <?php
