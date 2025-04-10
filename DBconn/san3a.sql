@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2025 at 04:26 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 10, 2025 at 09:05 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,13 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`category_id`, `name`) VALUES
+(3, 'عدة سباكة'),
+(2, 'عدة نجارة'),
 (1, 'مفكات ');
 
 -- --------------------------------------------------------
@@ -50,7 +52,7 @@ CREATE TABLE `contact_us` (
   `name` varchar(250) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
   `problem_message` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact_us`
@@ -74,26 +76,6 @@ INSERT INTO `contact_us` (`id`, `name`, `phone_num`, `problem_message`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `order_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `technician_id` int(11) DEFAULT NULL,
-  `total_amount` decimal(10,2) NOT NULL,
-  `discount` decimal(5,2) DEFAULT 0.00,
-  `status` enum('pending','in_progress','completed','cancelled') DEFAULT 'pending',
-  `address` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `payment_method` enum('cash','credit_card','wallet') DEFAULT 'cash',
-  `delivery_time` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `products`
 --
 
@@ -106,19 +88,19 @@ CREATE TABLE `products` (
   `stock` int(11) NOT NULL,
   `discount` decimal(5,2) DEFAULT 0.00,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `image_url` varchar(255) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT 'Resorces/product.jpg',
   `min_stock_level` int(11) DEFAULT 1,
   `properties` varchar(2000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `name`, `description`, `price`, `stock`, `discount`, `created_at`, `image_url`, `min_stock_level`, `properties`) VALUES
-(1, 1, '                    مفك صليبة كبير\r\n', '                    فولاذ عالى الجودة المقبض مريح \r\n', 200.00, 50, 0.00, '2025-03-30 15:08:28', 'https://m.media-amazon.com/images/I/41FwFFzVBAL._AC_UF894,1000_QL80_.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
-(6, 1, 'كماشة كهربائية', 'كماشة لعزل وفصل الأسلاك.', 80.00, 60, 5.00, '2025-04-10 01:57:44', 'https://cdn.salla.sa/ZqZQY/buYHgugnKlpq24uzPY0FZSk4fK4eVujT9cFpTTmZ.jpg', 1, '<ul> <li> تصميم مدمج ومريح للاستخدام في الأماكن الضيقة </li> <li> قبضة قوية توفر راحة وثبات أثناء الاستخدام </li> <li> مقاومة للحرارة والأحمال الكهربائية العالية </li> <li> مثالية للعمل في تركيب الأسلاك والصيانة الكهربائية </li> <li> مزودة بميزة العزل لحماية المستخدم من الكهرباء </li> <li> سعر معقول مقابل أداء عالي وموثوق </li> <li> توصيل سريع وآمن إلى العنوان المحدد </li> </ul>'),
-(8, 1, 'مفتاح أنابيب', 'مفتاح خاص بأنابيب السباكة.', 110.00, 20, 0.00, '2025-04-10 02:00:23', 'https://albawarditools.com/wp-content/uploads/2019/07/86907_RIDGID_758_Adjustable_Wrench_highres.jpg', 1, ' <ul> <li> تصميم قوي ومتين لتحمل الضغط العالي </li> <li> سهولة في الاستخدام بفضل المقبض المريح </li> <li> مناسب للعمل مع أنابيب بأحجام مختلفة </li> <li> مصمم خصيصًا لزيادة القوة والفعالية في الفك والتركيب </li> <li> مقاوم للتآكل مما يزيد من عمر الاستخدام </li> <li> سعر معقول مقارنة بجودة الأداء </li> <li> توصيل موثوق وسريع إلى منزلك </li> </ul> ');
+(1, 1, 'مفك عادة', '                    فولاذ عالى الجودة المقبض مريح \r\n', '200.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(5, 2, 'صفيحة منشار', '                    فولاذ عالى الجودة \r\n', '50.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(6, 3, 'حنفية حوض', 'عالي الجودة', '250.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -131,21 +113,21 @@ CREATE TABLE `technicians` (
   `rating` decimal(3,2) DEFAULT 5.00,
   `visit_price` decimal(10,2) DEFAULT 200.00,
   `area` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `province` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'القاهرة',
+  `province` varchar(50) CHARACTER SET utf8 DEFAULT 'القاهرة',
   `specialty` varchar(50) DEFAULT 'كهربائي',
   `work_hours` text DEFAULT 'من 5 الى 9',
   `tech_id` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `technicians`
 --
 
 INSERT INTO `technicians` (`user_id`, `rating`, `visit_price`, `area`, `province`, `specialty`, `work_hours`, `tech_id`) VALUES
-(33, 5.00, 200.00, 'أكتوبر', 'القاهرة', 'كهربائي', 'من 5 الى 9', 0),
-(34, 5.00, 200.00, 'الهرم', 'القاهرة', 'سباك', 'من 5 الى 9', 0),
-(35, 5.00, 200.00, 'التجمع الخامس', 'القاهرة', 'نجار', 'من 5 الى 9', 0),
-(36, 5.00, 200.00, 'العاشر من رمضان', 'القاهرة', 'نقاش', 'من 5 الى 9', 0);
+(33, '5.00', '200.00', 'أكتوبر', 'القاهرة', 'كهربائي', 'من 5 الى 9', 0),
+(34, '5.00', '200.00', 'الهرم', 'القاهرة', 'سباك', 'من 5 الى 9', 0),
+(35, '5.00', '200.00', 'التجمع الخامس', 'القاهرة', 'نجار', 'من 5 الى 9', 0),
+(36, '5.00', '200.00', 'العاشر من رمضان', 'القاهرة', 'نقاش', 'من 5 الى 9', 0);
 
 -- --------------------------------------------------------
 
@@ -162,7 +144,7 @@ CREATE TABLE `tech_orders` (
   `user_id` int(11) DEFAULT NULL,
   `tech_id` int(50) NOT NULL,
   `user_phone` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tech_orders`
@@ -189,7 +171,7 @@ CREATE TABLE `users` (
   `user_type` enum('client','technician') NOT NULL,
   `address` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -220,14 +202,6 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `technician_id` (`technician_id`);
 
 --
 -- Indexes for table `products`
@@ -268,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -277,16 +251,10 @@ ALTER TABLE `contact_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tech_orders`
@@ -303,13 +271,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`technician_id`) REFERENCES `technicians` (`user_id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `products`

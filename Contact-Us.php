@@ -6,7 +6,6 @@ if (!isset($_SESSION['ID'])) {
     exit();
 }
 
-
 $name=$phone_num=$problem_message=$submit_message="";
 
 $name_err=$phone_err=$problem_message_err="";
@@ -33,14 +32,12 @@ if (isset($_POST['submit'])) {
         $name = $_POST['name'];
         $phone_num = $_POST['phone_num'];
         $problem_message = $_POST['problem_message'];
-        $submit_message = '<p class="message">تم تسجيل مشكلتك بنجاح</p>';
+        $submit_message = '<p class="message">تم تسجيل مشكلتك بنجاح وسنتواصل معك قريبا لحل المشكلة</p>';
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,11 +46,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
         <style>
             p.error{
                 color: red;
-
             }
             p.message{
                 color:green;
@@ -66,12 +61,11 @@ if (isset($_POST['submit'])) {
 
     <?php include "header.html"; ?> <!-- header -->
 
-
     <div class="support-form">
         <h2> هل تحتاج إلي المساعدة ؟</h2>
         <form method="post" name="validation">
             <div class="name">
-                <input type="text" placeholder="الاسم بالكامل"  name="name" id="name">
+                <input type="text" placeholder="الاسم بالكامل"  name="name" id="name" required>
                 <p id="name_error" style="color: red;"></p>
                 <?php echo $name_err ?>
             </div>
@@ -83,7 +77,7 @@ if (isset($_POST['submit'])) {
 
 
             <div class="problem">
-                <textarea placeholder="اكتب لنا مشكلتك ..." name="problem_message"></textarea>
+                <textarea placeholder="اكتب لنا مشكلتك ..." name="problem_message" required></textarea>
                 <?php echo $problem_message_err ?>
             </div>
 
@@ -93,8 +87,5 @@ if (isset($_POST['submit'])) {
             </div>
         </form>
     </div>
-
-    
 </body>
-
 </html>

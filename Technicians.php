@@ -92,9 +92,7 @@
       
         <div class="categories">
         </div>
-
         <div id="technicians-list" class="cards">
-            
         <?php
             if(isset($result)){
                 while ($row = mysqli_fetch_assoc($result)) {
