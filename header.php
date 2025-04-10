@@ -17,7 +17,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == "technician") {
         <a href="shop.php">قطع الغيار</a>
         <?php echo $orders ?>
         <a href="Home.php">الصفحة الرئيسية</a>
-        <select id="specialty" class="manage" onchange="navigateToPage(this.value)">
+        <select id="specialty" class="manage" onchange="location = this.value;">
       <option>🧑 حسابك</option>
       <option value="prof.php">ادارة الحساب</option>
       <option value="cart.php">عربة التسوق</option>

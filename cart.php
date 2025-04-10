@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
     
 
     <main>

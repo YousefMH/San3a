@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-    <?php include "header.html"; ?> <!-- header -->
+    <?php include "header.php"; ?> <!-- header -->
 
     <div class="support-form">
         <h2> هل تحتاج إلي المساعدة ؟</h2>

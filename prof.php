@@ -68,7 +68,7 @@
 </head>
 <body >
     
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
 
     <div class="form-container">
         <div class="profile-section">

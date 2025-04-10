@@ -59,7 +59,7 @@ if(isset($_GET['search'])){
 </head>
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
     <main>
 <form  method="get">
         <div class="search-bar">

@@ -53,7 +53,7 @@
 </head>
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
 
     <form method="POST">
         <div class="search-section">

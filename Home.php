@@ -20,7 +20,7 @@ if (!isset($_SESSION['ID'])) {
 
 <body>
 
-    <?php include "header.html"; ?>
+    <?php include "header.php"; ?>
     <!-- header -->
     
     <div dir="rtl" class="now" style="cursor:auto;">

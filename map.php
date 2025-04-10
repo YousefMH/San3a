@@ -19,7 +19,7 @@
 
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
 
     <div class="map">
         <iframe class="map"

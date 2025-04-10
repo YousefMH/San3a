@@ -39,7 +39,7 @@
 
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
 
     <div class="dashboard">
         <div class="buttons">

@@ -34,7 +34,7 @@
 </head>
 <body>
 
-    <?php include "header.html";?> <!-- header -->
+    <?php include "header.php";?> <!-- header -->
     
     <main>
         <div class="product-inside-container">
