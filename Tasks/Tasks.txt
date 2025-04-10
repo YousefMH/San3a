@@ -15,10 +15,8 @@ Backend Tasks
 [DONE] Product search in (shop.php)
 [DONE] (control.php), make it work as a technician dashboard
 [DONE] Make the (control.php) get all orders from the DB and show them to the technician
+[DONE] Create a new page (TOrder.php) as a front-end
+[DONE] make (TOrder.php) functionality work as database insertion into the orders table in the DB
+[DONE] Add Choose Speciality in TRegisteration.php in the front end and connect it with backend
 
 - Activate the add to cart functionality
-- Create a new page (TOrder.php) as a front-end
-- make (TOrder.php) functionality work as database insertion into the orders table in the DB
-- Add Choose Speciality in TRegisteration.php in the front end and connect it with backend
-
-
