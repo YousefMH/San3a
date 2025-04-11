@@ -18,6 +18,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
         $pass =  test_input($_POST["pass"]);
         $specialty = test_input($_POST["specialty"]);
         $area = test_input($_POST["area"]);
+        $province = test_input($_POST["province"]);
         $hashedPassword = password_hash($pass, PASSWORD_DEFAULT); // Create password hash from the entered password
 
         $checkIfUserExitsQuery = "SELECT email FROM users WHERE email = '$email'";
@@ -27,7 +28,7 @@ if (isset($_POST["btnRegister"])) { // When button clicked
             $CreateUserQuery = "INSERT INTO users(email,password,first_name,last_name,user_type) VALUES('$email','$hashedPassword','$fname','$sname','technician')";
             if (mysqli_query($conn, $CreateUserQuery)) {
                 $lastUserId = mysqli_insert_id($conn);
-                $CreateTechQuery = "INSERT INTO technicians(user_id,specialty,area) VALUES('$lastUserId','$specialty','$area')";
+                $CreateTechQuery = "INSERT INTO technicians(user_id,specialty,area,province) VALUES('$lastUserId','$specialty','$area','$province')";
                 if (mysqli_query($conn, $CreateTechQuery)) {
                     header("Location: index.php");
                     exit();
@@ -92,14 +93,21 @@ if (isset($_POST["btnRegister"])) { // When button clicked
                 <option value="حداد">حداد</option>
                 <option value="نقاش">نقاش</option>
             </select> 
+            <select name="province" required class="menu">
+                <option value="" disabled selected="">اختر المحافظة</option>
+                <option value="القاهرة">القاهرة</option>
+                <option value="الجيزة">الجيزة</option>
+            </select> 
             <select name="area" id="area" required class="menu">
                 <option value="" disabled selected="">اختر المنطقة</option>
                 <option value="أكتوبر">أكتوبر</option>
                 <option value="الهرم">الهرم</option>
-                <option value="التجمع الخامس">التجمع الخامس</option>
-                <option value="مدينة نصر">مدينة نصر</option>
-                <option value="العاشر من رمضان">العاشر من رمضان</option>
+                <option value="التجمع">التجمع</option>
+                <option value="الرحاب">الرحاب</option>
+                <option value="مدينتي">مدينتي</option>
+                <option value="زايد">زايد</option>
             </select> 
+
             <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
 
         </div>

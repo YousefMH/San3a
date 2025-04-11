@@ -7,11 +7,13 @@
 
     include "DBconn/conn.php";
 
-    $selectLocationsQuiery = "SELECT area FROM technicians";
+    $selectLocationsQuiery = "SELECT DISTINCT area FROM technicians";
     $selectedLocations = mysqli_query($conn,$selectLocationsQuiery);
-    $selectedSpecialtiesQuiery = "SELECT specialty FROM technicians";
+    $selectedSpecialtiesQuiery = "SELECT DISTINCT specialty FROM technicians";
     $selectedSpecialties = mysqli_query($conn,$selectedSpecialtiesQuiery);
-    if(isset($_POST['BtnSearch'])){ 
+    $selectProvinceQuiery = "SELECT DISTINCT province FROM technicians";
+    $selectedProvince = mysqli_query($conn,$selectProvinceQuiery);
+    if(isset($_POST['BtnSearch'])){
         $specialtySelect = isset($_POST['specialty']) ? $_POST['specialty'] : "%";
         $provinceSelect  = isset($_POST['province']) ? $_POST['province'] : "%";
         $areaSelect      = isset($_POST['area']) ? $_POST['area'] : "%";
@@ -19,7 +21,7 @@
                         FROM technicians 
                         JOIN users ON users.user_id = technicians.user_id
                         WHERE technicians.specialty LIKE '$specialtySelect'
-                        AND technicians.province LIKE '$provinceSelect' 
+                        AND technicians.province LIKE '$provinceSelect'
                         AND technicians.area LIKE '$areaSelect'";
         $result = mysqli_query($conn,$SearchQuery);
     }else{
@@ -71,8 +73,12 @@
                 </select>
             <select id="province" name="province">
                 <option disabled selected>اختيار المحافظة</option>
-                <option value="القاهرة">القاهرة</option>
-                <option value="الإسكندرية">الإسكندرية</option>
+                <?php
+                if(isset($selectedProvince)){
+                    while ($row = mysqli_fetch_assoc($selectedProvince)) {
+                        echo  '<option value=' . $row["province"] . '>' . $row["province"] . '</option>';
+                    }
+                }?>
             </select>
             <select id="area" name="area">
                 <option disabled selected>اختيار المنطقة</option>
@@ -98,7 +104,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<div class="card">
                             <div class="right">
-                                <h3>' . $row['first_name'] . ' ' . $row['last_name'] . '</h3>
+                                <strong>' . $row['first_name'] . ' ' . $row['last_name'] . '</strong>
                                 <p>' . $row['specialty'] . '</p>
                                 <p>' . $row['area'] . '</p>
                             </div>
