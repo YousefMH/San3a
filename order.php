@@ -1,6 +1,6 @@
 <?php
     $technician_id=$_GET['id'];
-
+    session_start();
     include("DBconn/conn.php");
 
     $sql="SELECT users.first_name,users.last_name,technicians.visit_price 
