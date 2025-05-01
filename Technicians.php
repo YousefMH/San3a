@@ -71,21 +71,21 @@
                     }
                 }?>
                 </select>
-            <select id="province" name="province">
-                <option disabled selected>اختيار المحافظة</option>
-                <?php
-                if(isset($selectedProvince)){
-                    while ($row = mysqli_fetch_assoc($selectedProvince)) {
-                        echo  '<option value=' . $row["province"] . '>' . $row["province"] . '</option>';
-                    }
-                }?>
-            </select>
             <select id="area" name="area">
                 <option disabled selected>اختيار المنطقة</option>
                 <?php 
                 if(isset($selectedLocations)){
                     while ($row = mysqli_fetch_assoc($selectedLocations)) {
                         echo  '<option value=' . $row["area"] . '>' . $row["area"] . '</option>';
+                    }
+                }?>
+            </select>
+            <select id="province" name="province">
+                <option disabled selected>اختيار المحافظة</option>
+                <?php
+                if(isset($selectedProvince)){
+                    while ($row = mysqli_fetch_assoc($selectedProvince)) {
+                        echo  '<option value=' . $row["province"] . '>' . $row["province"] . '</option>';
                     }
                 }?>
             </select>

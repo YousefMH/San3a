@@ -18,8 +18,8 @@ if (isset($_POST['submit'])) {
         $has_error=true;
     }
 
-    if(empty($_POST['phone_num']) || !is_numeric($_POST['phone_num']) ){
-        $phone_err='<p class="error">الرجاء ادخال رقم الهاتف </p>';
+    if(empty($_POST['phone_num']) || !is_numeric($_POST['phone_num']) || $_POST['phone_num'][0] != '0' || $_POST['phone_num'][1] != '1'){
+        $phone_err='<p class="error"> الرجاء ادخال رقم الهاتف بشكل صحيح يبدأ ب 01</p>';
         $valid=true;
     }
 
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
                 color: red;
             }
             p.message{
-                color:green;
+                color:red;
                 text-align: center;
             }
         </style>
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="phone">
-                <input type="tel" placeholder="رقم الهاتف (يدعم واتس آب)" required name="phone_num" id="phone_num">
+                <input type="text" placeholder="رقم الهاتف (يدعم واتس آب)" required name="phone_num" id="phone_num">
                 <?php echo $phone_err ?>
             </div>
 

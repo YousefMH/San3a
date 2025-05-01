@@ -1,9 +1,15 @@
 <?php
 
 $orders = '';
+$near = '<a href="map.php">اقرب فني ليك</a>';
+$orderTech = '<a href="Technicians.php">اطلب فني</a>';
+$shop = '<a href="shop.php">قطع الغيار</a>';
 
-if (isset($_SESSION['role']) && $_SESSION['role'] == "technician") {
+if(isset($_SESSION['role']) && $_SESSION['role'] == "technician") {
     $orders = '<a href="Control.php">الطلبات</a>';
+    $near = '';
+    $orderTech = '';
+    $shop = '';
 }
 ?>
 
@@ -11,10 +17,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == "technician") {
     <img src="Resorces/Frame 16.png" alt="" class="logo" />
     <div class="link">
 
-        <a href="map.php">اقرب فني ليك</a>
+        <?php echo $near ?>
         <a href="Contact-Us.php">الدعم الفني</a>
-        <a href="Technicians.php">اطلب فني</a>
-        <a href="shop.php">قطع الغيار</a>
+        <?php echo $orderTech?>
+        <?php echo $shop ?>
         <?php echo $orders ?>
         <a href="Home.php">الصفحة الرئيسية</a>
         <select id="specialty" class="manage" onchange="location = this.value;">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2025 at 09:05 AM
+-- Generation Time: May 01, 2025 at 06:43 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -98,9 +98,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `name`, `description`, `price`, `stock`, `discount`, `created_at`, `image_url`, `min_stock_level`, `properties`) VALUES
-(1, 1, 'مفك عادة', '                    فولاذ عالى الجودة المقبض مريح \r\n', '200.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
-(5, 2, 'صفيحة منشار', '                    فولاذ عالى الجودة \r\n', '50.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
-(6, 3, 'حنفية حوض', 'عالي الجودة', '250.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/product.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
+(1, 1, 'مفك عادة', '                    فولاذ عالى الجودة المقبض مريح \r\n', '200.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/mofaak.jpg', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            دقة فائقة مع رأس محكم يمنع الانزلاق\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            مثالي للصيانة الدقيقة وإصلاح الإلكترونيات\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(5, 2, 'صفيحة منشار', '                    فولاذ عالى الجودة \r\n', '50.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/menshar.webp', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            حجم صغير مناسب للسفر والتخزين السهل\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n'),
+(6, 3, 'حنفية حوض', 'عالي الجودة', '250.00', 50, '0.00', '2025-03-30 15:08:28', 'Resorces/khalat.webp', 30, ' <ul>\r\n                        <li>\r\n                            تصميم مدمج ومريح وسهل الاستخدام\r\n                        </li>\r\n                        <li>\r\n                            مصنوع من مواد متينة ومقاومة للصدأ\r\n                        </li>\r\n                        <li>\r\n                            سعر اقتصادي مع أداء احترافي\r\n                        </li>\r\n                        <li>\r\n                            توصيل سريع وموثوق إلى باب المنزل\r\n                        </li>\r\n                    </ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -126,8 +126,10 @@ CREATE TABLE `technicians` (
 INSERT INTO `technicians` (`user_id`, `rating`, `visit_price`, `area`, `province`, `specialty`, `work_hours`, `tech_id`) VALUES
 (33, '5.00', '200.00', 'أكتوبر', 'القاهرة', 'كهربائي', 'من 5 الى 9', 0),
 (34, '5.00', '200.00', 'الهرم', 'القاهرة', 'سباك', 'من 5 الى 9', 0),
-(35, '5.00', '200.00', 'التجمع الخامس', 'القاهرة', 'نجار', 'من 5 الى 9', 0),
-(36, '5.00', '200.00', 'العاشر من رمضان', 'القاهرة', 'نقاش', 'من 5 الى 9', 0);
+(35, '5.00', '200.00', 'الرحاب', 'القاهرة', 'نجار', 'من 5 الى 9', 0),
+(36, '5.00', '200.00', 'مدينتي', 'القاهرة', 'نقاش', 'من 5 الى 9', 0),
+(37, '5.00', '200.00', 'زايد', 'القاهرة', 'نقاش', 'من 5 الى 9', 0),
+(38, '5.00', '200.00', 'زايد', 'الجيزة', 'حداد', 'من 5 الى 9', 0);
 
 -- --------------------------------------------------------
 
@@ -178,12 +180,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `phone`, `password`, `national_id`, `user_type`, `address`, `created_at`) VALUES
-(32, 'Yousef', 'Hosney', 'y@y.y', NULL, '$2y$10$kYp/t.hJhC/Z6P20PsKgt..aSuS4LxTMPiNIyheP66yixMnyl3aeq', NULL, 'client', NULL, '2025-04-09 15:54:31'),
+(32, 'يوسف', 'حسني', 'y@y.y', '01551227246', '$2y$10$kYp/t.hJhC/Z6P20PsKgt..aSuS4LxTMPiNIyheP66yixMnyl3aeq', NULL, 'client', NULL, '2025-04-09 15:54:31'),
 (33, 'محمد', 'ياسر', 'm@t.t', NULL, '$2y$10$NtSinZ9xM4Qg4qB38iewg.UADRlNTRJM2wIL7cyKg3Kr4SxlCLz/u', NULL, 'technician', NULL, '2025-04-09 15:55:21'),
 (34, 'سيد', 'حنفي', 's@t.t', NULL, '$2y$10$ZPZ/ijjaEx5WTMFFxrFcqO4j3ZtP9O8uwOI5nlYIXOTpWZn70xU52', NULL, 'technician', NULL, '2025-04-09 15:55:53'),
 (35, 'أحمد', 'حمدي', 'a@t.t', NULL, '$2y$10$sOvTWfayu8NAug80d1YkYu7AzPHQ9dI5uKY2Tkq4x2GziAHCvlpFG', NULL, 'technician', NULL, '2025-04-09 15:56:27'),
 (36, 'فتحي', 'أحمد', 'f@t.t', NULL, '$2y$10$WCcvZTNHib/9Kca68m9b/uzMI12Wf5Uu2l.ufwGK60BWROsxxiCRy', NULL, 'technician', NULL, '2025-04-09 15:57:27'),
-(37, 'Yahya', 'Shaaban', 'ys@c.c', NULL, '$2y$10$qyOS4eplnv61K4T5RyG6FO7SZXNCEFRWefXasMcwo61VCPwt.VJ/S', NULL, 'client', NULL, '2025-04-09 16:31:05');
+(37, 'Yahya', 'Shaaban', 'ys@c.c', NULL, '$2y$10$qyOS4eplnv61K4T5RyG6FO7SZXNCEFRWefXasMcwo61VCPwt.VJ/S', NULL, 'client', NULL, '2025-04-09 16:31:05'),
+(38, 'المعلم', 'صبري', 'sab@t.t', NULL, '$2y$10$qLW1eiYu/cOJsAL6kOcXn.ahy/0mAYE/SIB7V4izGpOCHIOplWHd6', NULL, 'technician', NULL, '2025-04-11 13:56:47');
 
 --
 -- Indexes for dumped tables
@@ -266,7 +269,7 @@ ALTER TABLE `tech_orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
