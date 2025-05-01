@@ -14,6 +14,7 @@ if (!isset($_SESSION['ID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <title>Home</title>
     <link rel="stylesheet" href="./style/Home.css">
 </head>

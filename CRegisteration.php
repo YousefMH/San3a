@@ -48,6 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عميل</title>
     <link rel="stylesheet" href="./style/Customer.css">
+    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
 </head>
 
 <body>

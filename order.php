@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/order.css">
     <title>طلب فني</title>
+    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <style>
         h2 {
             font-weight: bold;
