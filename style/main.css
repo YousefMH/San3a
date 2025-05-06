@@ -140,13 +140,20 @@ main {
 }
 
 .price-title {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
         color: white;
         font-weight: 700;
         display: inline-block;
         margin-left: 8px;
         margin-bottom: 20px;
     margin-bottom: 20px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
 }
 
 .button-card {

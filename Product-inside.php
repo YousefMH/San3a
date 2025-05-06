@@ -44,12 +44,20 @@
             <div class="product-left">
                 <img src="'.$row['image_url'].'" class="mafak-inside" alt="Product Image">
             </div>
+<<<<<<< HEAD
                         <p class="title-card-bold">'.$row['name'].'</p>
                 <p class="title-card-light">'.$row['description'].'</p>
+=======
+            
+            <div class="product-right">
+                <h2 class="product-title">'.$row['name'].'</h2>
+                <p class="product-description">'.$row['description'].'</p>
+>>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
                 
                 <div class="price-box">
                     <span class="price-text">السعر: '.$row['price'].' LE</span>
                 </div>
+<<<<<<< HEAD
 
                 <div class="button-inside-add-container">
                     <div class="button-add">
@@ -80,6 +88,38 @@
     </div>
 </main>
 
+=======
+
+                <div class="button-inside-add-container">
+                    <div class="button-add">
+                        <div><button id="increase">+</button></div>
+                        <div><p id="counter">0</p></div>
+                        <div><button id="decrease">-</button></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="fav-and-cart-button">
+                        <img src="./Resorces/grocery-store.png" alt="">
+                        <span>أضف إلى العربة</span>
+                    </button>
+                    <button class="fav-and-cart-button">
+                        <img src="./Resorces/star.png" alt="">
+                        <span>مفضلة</span>
+                    </button>
+                </div>
+
+                <div class="product-discretion">
+                    <h3>مزايا المنتج</h3>
+                    <p>'.$row['properties'].'</p>
+                </div>
+            </div>
+        </div>';
+        ?>
+    </div>
+</main>
+
+>>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
     
    
     <script>

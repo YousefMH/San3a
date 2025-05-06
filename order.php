@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./style/general.css">
 
     <title>طلب فني</title>
+    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <style>
         h2 {
             font-weight: bold;
