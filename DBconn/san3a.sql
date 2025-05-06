@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2025 at 06:43 PM
+-- Generation Time: May 06, 2025 at 05:21 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -128,7 +128,6 @@ INSERT INTO `technicians` (`user_id`, `rating`, `visit_price`, `area`, `province
 (34, '5.00', '200.00', 'الهرم', 'القاهرة', 'سباك', 'من 5 الى 9', 0),
 (35, '5.00', '200.00', 'الرحاب', 'القاهرة', 'نجار', 'من 5 الى 9', 0),
 (36, '5.00', '200.00', 'مدينتي', 'القاهرة', 'نقاش', 'من 5 الى 9', 0),
-(37, '5.00', '200.00', 'زايد', 'القاهرة', 'نقاش', 'من 5 الى 9', 0),
 (38, '5.00', '200.00', 'زايد', 'الجيزة', 'حداد', 'من 5 الى 9', 0);
 
 -- --------------------------------------------------------
@@ -154,7 +153,8 @@ CREATE TABLE `tech_orders` (
 
 INSERT INTO `tech_orders` (`order_ID`, `order_title`, `order_date`, `order_location`, `order_price`, `user_id`, `tech_id`, `user_phone`) VALUES
 (1, 'صيانة تكييف', '2025-04-05', 'أكتوبر', 200, 22, 33, '0123456789'),
-(2, 'عطل في الثلاجة', '2025-04-06', 'الهرم', 200, 22, 35, NULL);
+(2, 'عطل في الثلاجة', '2025-04-06', 'الهرم', 200, 22, 35, NULL),
+(5, 'طلب حدادة', '2025-01-06', 'Giza', 200, 32, 38, '01551227246');
 
 -- --------------------------------------------------------
 
@@ -263,7 +263,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `tech_orders`
 --
 ALTER TABLE `tech_orders`
-  MODIFY `order_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
