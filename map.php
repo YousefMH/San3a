@@ -15,6 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أقرب فني ليك</title>
     <link rel="stylesheet" href="./style/map.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/general.css">
+
+
 </head>
 
 <body>
@@ -47,7 +51,6 @@
 
 
 
-
     <script>
         function setActive(element) {
             document.querySelectorAll(".link a").forEach((el) => el.classList.remove("active"));
@@ -65,3 +68,6 @@
 </body>
 
 </html>
+<?php
+include("footer.php");
+?>

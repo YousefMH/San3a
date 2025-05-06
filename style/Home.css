@@ -70,7 +70,7 @@ option {
 .now {
     font-family: "Tajawal", sans-serif;
     background-color: rgba(255, 255, 255, 0.7);
-    height: 65%;
+    height: 70%;
     border: none;
     padding: 150px 70px;
     border-radius: 5px;
@@ -85,4 +85,5 @@ option {
     cursor: pointer;
     font-size: 20px;
     font-family: "Tajawal", sans-serif;
+    margin-top: 18px;
 }

@@ -108,7 +108,8 @@ main {
     border: outset;
     border-width: 1px;
     background-color: rgb(52, 52, 52);
-    border-radius: 20px;
+    border-radius: 10px;
+    padding: 10px;
     width: 240px;
     height: 400px;
 
@@ -125,6 +126,8 @@ main {
     font-size: 18px;
     color: white;
     text-align: center;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .title-card-light {
@@ -132,24 +135,29 @@ main {
     font-weight: 500;
     color: white;
     text-align: center;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.button-card {
-    display: flex;
-    border-radius: 6px;
-    border: none;
-    margin: 0px 40px;
-    justify-content: space-between;
-    flex: 1;
-    img {
-        width: 20px;
-        margin-top: 6px;
-    }
-    p {
+.price-title {
         color: white;
         font-weight: 700;
         display: inline-block;
-    }
+        margin-left: 8px;
+        margin-bottom: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.button-card {
+    background-color: #d4a200;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .cart-bottom-container {
@@ -239,6 +247,7 @@ main {
 
 .price-text {
     color: white;
+    
 }
 
 .button-inside {
@@ -264,6 +273,7 @@ main {
 .button-add {
     display: flex;
     gap: 30px;  
+    margin-bottom: 30px;
 }
 
 .product-inside button img {

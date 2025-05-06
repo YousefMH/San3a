@@ -39,6 +39,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اطلب فني</title>
     <link rel="stylesheet" href="./style/Technical Order.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/general.css">
     <style>
         a.order {
             padding: 10px;
@@ -125,3 +127,7 @@
     </div>
 </body>
 </html>
+
+<?php
+include("footer.php");
+?>

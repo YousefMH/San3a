@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
 body{
-    background: url(../Resorces/background.jpg);
+    background: url(../Resorces/Untitled-1.jpg);
     font-family: "Tajawal", sans-serif;
     background-repeat: no-repeat;
     background-position: absolute;
@@ -74,4 +74,43 @@ option{
     text-align: center;
     border-radius: 30px;
 
+}
+
+.product-container {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+}
+
+.button-card-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.details-btn {
+    background-color: #d4a200;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #b38e00;
 }

@@ -5,12 +5,15 @@ body{
     background-repeat: no-repeat;
     background-position: absolute;
     background-size: cover;
+    
     /* background-attachment: fixed; */
     height:100%;
     font-family: "Tajawal", sans-serif;
     
 }
-
+.container{
+    padding: 20px 30px;
+}
 
 .register-container {
     background: rgba(70, 70, 70, 0.7);
@@ -18,10 +21,10 @@ body{
     border-radius: 10px;
     width: 320px;
     text-align: center;
-
     top: 50%;
     left: 50%;
-    transform: translate(150%, 0%);
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
 
 h2{
@@ -78,4 +81,8 @@ input::placeholder {
 .register-btn a{
     text-decoration: none;
     color: #fff;
+}
+
+input {
+    font-size: 17px;
 }
