@@ -1,11 +1,11 @@
 .header-container {
     display: flex;
     top: 0px;
-    background-color: rgb(203, 161, 53);
     align-items: center;
     border: none;
     border-radius: 0px 0px 12px 12px;
     justify-content: space-between;
+    z-index: 100;
 }
 
 .san3a-logo {

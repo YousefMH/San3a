@@ -16,6 +16,9 @@ if (!isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="./style/Home.css">
+    <link rel="stylesheet" href="./style/footer-home.css">
+    <link rel="stylesheet" href="./style/general.css">
+    
 </head>
 
 <body>
@@ -37,6 +40,9 @@ if (!isset($_SESSION['ID'])) {
         </p>
         <button class="btn" onclick="window.location.href='Technicians.php'">أطلب فني</button>
     </div>
+
+
+
     <script>
         function navigateToPage(value) {
             if (value) {
@@ -47,3 +53,6 @@ if (!isset($_SESSION['ID'])) {
 </body>
 
 </html>
+<?php
+include("footer.php");
+?>

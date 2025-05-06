@@ -32,116 +32,85 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
     <title>San3a</title>
 </head>
+
 <body>
 
     <?php include "header.php";?> <!-- header -->
     
     <main>
-        <div class="product-inside-container">
+    <div class="product-inside-container">
         <?php
-            echo    '<div class="product-inside">
-                        <div>
-                            <img src="'.$row['image_url'].'" class="mafak-inside">
-                        </div>
-                        <p class="title-card-bold">'.$row['name'].'</p>
-                        <p class="title-card-light">'.$row['description'].'</p>
-                        <div class="button-inside">
-                            <button class="fav-and-cart-button">
-                                <p>
-                                    مفضلة
-                                </p>
-                                <img src="./Resorces/star.png" alt="">
-                            </button>
-                            <p class="price-text">
-                                '.$row['price'].'
-                            </p>
-                            <button class="fav-and-cart-button">
-                                <p>
-                                أضف إلى العربة
-                                </p>
-                                <img src="./Resorces/grocery-store.png">
-                            </button>
-                        </div>
-                        <div class="button-inside-add-container">
-                            <div class="button-add">
-                                <div>
-                                    <button>
-                                        +
-                                    </button>
-
-                                </div>
-                                <div>
-                                    <p>
-                                        3
-                                    </p>
-
-                                </div>
-                                <div>
-                                    <button>
-                                        -
-                                    </button>
-
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="product-discretion">
-                            <p>
-                                مزايا المنتج
-                            </p>
-                            '.$row['properties'].'
-                        </div>                
-                    </div>';
-        ?>
-    </main>
-    <footer>
-        <div class="left-section-footer">
-                <img src="./Resorces/google-play.png" class="google-play">
-                <img src="./Resorces/pngwing.com (1).png" class="app-store">
-            <div class="small-icon-container">
-                <img src="./Resorces/facebook.png" class="small-icon">
-                <img src="./Resorces/instagram.png" class="small-icon">
-                <img src="./Resorces/twitter.png" class="small-icon">
+        echo '
+        <div class="product-inside">
+            <div class="product-left">
+                <img src="'.$row['image_url'].'" class="mafak-inside" alt="Product Image">
             </div>
             
-        </div>
+            <div class="product-right">
+                <h2 class="product-title">'.$row['name'].'</h2>
+                <p class="product-description">'.$row['description'].'</p>
+                
+                <div class="price-box">
+                    <span class="price-text">السعر: '.$row['price'].' LE</span>
+                </div>
 
-        <div class="mid-section-footer">
-            <p class="bold-text-footer">
-           هل تحتاج إلى مساعدة ؟ 
-            </p>
+                <div class="button-inside-add-container">
+                    <div class="button-add">
+                        <div><button id="increase">+</button></div>
+                        <div><p id="counter">0</p></div>
+                        <div><button id="decrease">-</button></div>
+                    </div>
+                </div>
 
-            <p class="light-text-footer">
-                اتصل بنا
-            </p>
+                <div class="action-buttons">
+                    <button class="fav-and-cart-button">
+                        <img src="./Resorces/grocery-store.png" alt="">
+                        <span>أضف إلى العربة</span>
+                    </button>
+                    <button class="fav-and-cart-button">
+                        <img src="./Resorces/star.png" alt="">
+                        <span>مفضلة</span>
+                    </button>
+                </div>
 
-            <p class="light-text-footer">
-                شروط الإستخدام
-            </p>
-
-            <p class="light-text-footer">
-                الخصوصية
-            </p>
-        </div>
-
-        <div class="right-section-footer">
-            <div class="logo-section">
-                <img src="./Resorces/Frame 16.png" class="san3a-logo">
-                <p class="com">
-                    .com
-                </p>
+                <div class="product-discretion">
+                    <h3>مزايا المنتج</h3>
+                    <p>'.$row['properties'].'</p>
+                </div>
             </div>
-            <div class="right-text">
-                <p class="light-text-footer">
-                    من نحن
-                </p>
+        </div>';
+        ?>
+    </div>
+</main>
 
-                <p class="light-text-footer">
-                    فريق صنعة
-                </p>
-            </div>
-        </div>
-    </footer>
+    
    
+    <script>
+    // نجيب العناصر
+    const counterElement = document.getElementById("counter");
+    const increaseBtn = document.getElementById("increase");
+    const decreaseBtn = document.getElementById("decrease");
+
+    // نجيب الرقم و نحوله لرقم حقيقي
+    let count = parseInt(counterElement.textContent);
+
+    // حدث الضغط على زرار +
+    increaseBtn.addEventListener("click", () => {
+        count++;
+        counterElement.textContent = count;
+    });
+
+    // حدث الضغط على زرار -
+    decreaseBtn.addEventListener("click", () => {
+        if (count > 0) {
+            count--;
+            counterElement.textContent = count;
+        }
+    });
+</script>
+
 </body>
 </html>
+<?php
+include("footer.php");
+?>

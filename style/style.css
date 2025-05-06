@@ -19,7 +19,8 @@ body{
     width: 300px;
     top: 50%;
     left: 50%;
-    transform: translate(155%, 70%);
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
 
 .login-container h2 {
@@ -63,14 +64,20 @@ input::placeholder {
 .new-account {
     margin-top: 15px;
     font-size: 14px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .new-account a {
     color: #ffffff;
     text-decoration: none;
-    ;
+    
 }
 
 .phone{
     font-family: "Tajawal", sans-serif;
+}
+
+input {
+    font-size: 16px;
 }

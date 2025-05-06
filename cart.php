@@ -14,6 +14,7 @@
     <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
@@ -37,20 +38,12 @@
                 <p class="title-card-light">
                     فولاذ عالى الجودة المقبض مريح 
                 </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star.png" alt="">
-                    </button>
-                    <p>
+
+                <p class="price-title">
                         200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/grocery-store.png">
-                    </button>
-                </div>
+                </p>
+                  
+                
             </div>
 
             <div class="product-container">
@@ -61,20 +54,12 @@
                 <p class="title-card-light">
                     فولاذ عالى الجودة المقبض مريح 
                 </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star.png" alt="">
-                    </button>
-                    <p>
+              
+                <p class="price-title">
                         200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/grocery-store.png">
-                    </button>
-                </div>
+                </p>
+                  
+               
             </div>
 
             <div class="product-container">
@@ -85,20 +70,12 @@
                 <p class="title-card-light">
                     فولاذ عالى الجودة المقبض مريح 
                 </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star.png" alt="">
-                    </button>
-                    <p>
+                
+                <p class="price-title">
                         200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/grocery-store.png">
-                    </button>
-                </div>
+                </p>
+                  
+                
             </div>
 
             <div class="product-container">
@@ -109,20 +86,12 @@
                 <p class="title-card-light">
                     فولاذ عالى الجودة المقبض مريح 
                 </p>
-                <p class="title-card-light">
-                    20 cm
-                </p>
-                <div class="button-card">
-                    <button>
-                        <img src="Resorces/star.png">
-                    </button>
-                    <p>
+                
+                <p class="price-title">
                         200.LE
-                    </p>
-                    <button>
-                        <img src="Resorces/grocery-store.png">
-                    </button>
-                </div>
+                </p>
+                  
+              
             </div>
         </div>
         
@@ -164,61 +133,6 @@
     </main>
 
 
-
-
-    <!-- <footer>
-        <div class="left-section-footer">
-                <img src="Resorces/google-play.png" class="google-play">
-                <img src="Resorces/pngwing.com (1).png" class="app-store">
-            <div class="small-icon-container">
-                <img src="Resorces/facebook.png" class="small-icon">
-                <img src="Resorces/instagram.png" class="small-icon">
-                <img src="Resorces/twitter.png" class="small-icon">
-            </div>
-            
-        </div>
-
-        <div class="mid-section-footer">
-            <p class="bold-text-footer">
-           هل تحتاج إلى مساعدة ؟ 
-            </p>
-
-            <p class="light-text-footer">
-                اتصل بنا
-            </p>
-
-            <p class="light-text-footer">
-                شروط الإستخدام
-            </p>
-
-            <p class="light-text-footer">
-                الخصوصية
-            </p>
-        </div>
-
-        <div class="right-section-footer">
-            <div class="logo-section">
-                <img src="Resorces/Frame 16.png" class="san3a-logo">
-                <p class="com">
-                    .com
-                </p>
-            </div>
-            <div class="right-text">
-                <p class="light-text-footer">
-                    من نحن
-                </p>
-
-                <p class="light-text-footer">
-                    فريق صنعة
-                </p>
-            </div>
-        </div>
-    </footer> -->
-
-
-
-
-
     <script>
 
 function navigateToPage(value) {
@@ -230,3 +144,8 @@ function navigateToPage(value) {
    
 </body>
 </html>
+<link rel="stylesheet" href="./style/Contact Us.css">
+
+<?php
+include("footer.php");
+?>
