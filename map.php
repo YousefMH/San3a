@@ -15,20 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أقرب فني ليك</title>
     <link rel="stylesheet" href="./style/map.css">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
     <link rel="stylesheet" href="./style/footer.css">
     <link rel="stylesheet" href="./style/general.css">
 
 
-<<<<<<< HEAD
-=======
-=======
-    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
->>>>>>> 214b927bb42fb48bec80e7c3117238da19d2a5c1
->>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
 </head>
 
 <body>
