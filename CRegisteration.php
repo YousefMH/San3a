@@ -1,43 +1,54 @@
 <?php
-    include "DBconn/conn.php";
+include "DBconn/conn.php";
+include "validation.php";
 
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-        } //  function to sanitizes data user input
+if (isset($_POST["btnRegister"])) {
+    if (
+        isset($_POST["fname"]) &&
+        isset($_POST["sname"]) &&
+        isset($_POST["email"]) &&
+        isset($_POST["NationalID"]) &&
+        isset($_POST["pass"])
+    ) {
+        $fname = test_input($_POST["fname"]);
+        $sname = test_input($_POST["sname"]);
+        $email = test_input($_POST["email"]);
+        $NID = test_input($_POST["NationalID"]);
+        $pass = test_input($_POST["pass"]);
+        $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
 
-    if(isset($_POST["btnRegister"])){ // When button clicked
-        if(isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) &&  isset($_POST["pass"])) {// Checks if users entered the data in the inputs
-            $fname = test_input($_POST["fname"]);
-            $sname = test_input($_POST["sname"]);
-            $email = test_input($_POST["email"]);
-            $pass = test_input($_POST["pass"]);
-            $hashedPassword = password_hash($pass, PASSWORD_DEFAULT); // Create password hash from the entered password
+        $checkIfUserExitsQuery = "SELECT email FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $checkIfUserExitsQuery);
 
-            $checkIfUserExitsQuery = "SELECT email FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn,$checkIfUserExitsQuery);
-
-            if(mysqli_num_rows($result) == 0){    // Checks the number of users exists in the DB, if there is no users with the same email: the code contenues/ if not: tells users that he is already exist
-                $query = "INSERT INTO users(email,password,first_name,last_name) VALUES('$email','$hashedPassword','$fname','$sname')";
-                if (mysqli_query($conn, $query)) {
-                    header("Location: index.php");
-                    exit();
-                } else {
-                    echo "Error: " . mysqli_error($conn); // Just for testing
-                }
-            }else{
-                echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
-                <strong>مستخدم موجود</strong> لديك بالفعل حساب مسجل في موقعنا 
-                <a href="index.php" style="color:rgb(90, 31, 255); text-decoration: none; font-weight: bold;">سجل دخول من هنا: </a>
-            </div>';
+        if (mysqli_num_rows($result) == 0) {
+            $query = "INSERT INTO users(email,password,first_name,last_name,national_id)
+                      VALUES('$email','$hashedPassword','$fname','$sname','$NID')";
+            if (mysqli_query($conn, $query)) {
+                header("Location: index.php");
+                exit();
+            } else {
+                echo "Error: " . mysqli_error($conn);
             }
-        }else{
-            echo "<script>alert('You Must Fill All Inputs');</script>";
+        } else {
+            echo '<div style="padding: 20px; border: 2px solid #f44336; border-radius: 5px; background-color: #f8d7da; color: #721c24; font-family: Arial, sans-serif; direction: rtl; text-align: right;">
+            <strong>مستخدم موجود</strong> لديك بالفعل حساب مسجل في موقعنا 
+            <a href="index.php" style="color:rgb(90, 31, 255); text-decoration: none; font-weight: bold;">سجل دخول من هنا: </a>
+        </div>';
         }
+    } else {
+        echo "<script>alert('You Must Fill All Inputs');</script>";
     }
+}
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,23 +61,37 @@
     <link rel="website icon" type="png" href="Resorces/Frame 16.png">
 </head>
 
+
 <body>
 <div class="container">
-    <form method="POST" onsubmit="return validatePassword()">
-        <div class="register-container">
-            <h2>  إنشاء حساب عميل </h2>
-            <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
-            <input type="text" placeholder="أدخل الاسم الثاني" name="sname" required>
-            <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
-            <div class="form-group">
-            <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
-            </div>
-            <div class="form-group">
-            <input type="password" placeholder="أعد إدخال كلمة المرور" id="password2" oninput="checkPasswordMatch()" name ="Cpass" required>
-            </div>
-            <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
-        </div>
-    </form>
+   
+    <form method="POST" name="validation" onsubmit="return validatePassword()">
+    <div class="register-container">
+        <h2>إنشاء حساب عميل</h2>
+
+        <input type="text" placeholder="أدخل الاسم الأول" name="fname" value="<?php echo htmlspecialchars($_POST['fname'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['fname'] ?? ''; ?></p>
+
+        <input type="text" placeholder="أدخل الاسم الثاني" name="sname" value="<?php echo htmlspecialchars($_POST['sname'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['sname'] ?? ''; ?></p>
+
+        <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['email'] ?? ''; ?></p>
+
+        <input type="text" placeholder="أدخل الرقم القومي" name="NationalID" value="<?php echo htmlspecialchars($_POST['NationalID'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['NationalID'] ?? ''; ?></p>
+
+        <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" value="<?php echo htmlspecialchars($_POST['pass'] ?? ''); ?>" oninput="checkPasswordMatch()"required>
+        <p style="color:red"><?php echo $errors['pass'] ?? ''; ?></p>
+
+        <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" name="Cpass" value="<?php echo htmlspecialchars($_POST['Cpass'] ?? ''); ?>" oninput="checkPasswordMatch()" required>
+        <p style="color:red"><?php echo $errors['Cpass'] ?? ''; ?></p>
+
+        <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
+        <p style="color:green"><?php echo $submit_message ?? ''; ?></p>
+    </div>
+</form>
+
 </div>
 <script>
         function checkPasswordMatch() {

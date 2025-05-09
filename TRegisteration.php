@@ -1,5 +1,6 @@
 <?php
 include "DBconn/conn.php";
+include "validation.php";
 
 function test_input($data) {
     $data = trim($data);
@@ -57,7 +58,6 @@ if (isset($_POST["btnRegister"])) { // When button clicked
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <title>فني</title>
     <link rel="stylesheet" href="./style/Technical.css">
     <style>
@@ -80,12 +80,25 @@ if (isset($_POST["btnRegister"])) { // When button clicked
     <form method="POST">
         <div class="register-container">
             <h2>إنشاء حساب فني</h2>
-            <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
-            <input type="text" placeholder="أدخل الاسم الثاني" name="sname" required>
-            <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
-            <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
-            <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
-            <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" oninput="checkPasswordMatch()" name="Cpass" required>
+            <input type="text" placeholder="أدخل الاسم الأول" name="fname" value="<?php echo htmlspecialchars($_POST['fname'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['fname'] ?? ''; ?></p>
+
+        <input type="text" placeholder="أدخل الاسم الثاني" name="sname" value="<?php echo htmlspecialchars($_POST['sname'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['sname'] ?? ''; ?></p>
+
+        <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['email'] ?? ''; ?></p>
+
+        <input type="text" placeholder="أدخل الرقم القومي" name="NationalID" value="<?php echo htmlspecialchars($_POST['NationalID'] ?? ''); ?>" required>
+        <p style="color:red"><?php echo $errors['NationalID'] ?? ''; ?></p>
+
+        <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" value="<?php echo htmlspecialchars($_POST['pass'] ?? ''); ?>" oninput="checkPasswordMatch()"required>
+        <p style="color:red"><?php echo $errors['pass'] ?? ''; ?></p>
+
+        <input type="password" id="password2" placeholder="أعد إدخال كلمة المرور" name="Cpass" value="<?php echo htmlspecialchars($_POST['Cpass'] ?? ''); ?>" oninput="checkPasswordMatch()" required>
+        <p style="color:red"><?php echo $errors['Cpass'] ?? ''; ?></p>
+
+      
             <select name="specialty" id="specialty" required class="menu">
                 <option value="" disabled selected="">اختر التخصص</option>
                 <option value="كهربائي">كهربائي</option>
@@ -109,8 +122,8 @@ if (isset($_POST["btnRegister"])) { // When button clicked
                 <option value="زايد">زايد</option>
             </select> 
 
-            <button class="register-btn" type="submit" name="btnRegister">إنشاء حساب</button>
-
+            <button class="register-btn" type="submit" name="submit">إنشاء حساب</button>
+            <p style="color:green"><?php echo $submit_message ?? ''; ?></p>
         </div>
     </form>
     <script>

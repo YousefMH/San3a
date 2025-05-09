@@ -1,34 +1,52 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['ID'])){
-        header("Location:index.php");
-        exit();
+session_start();
+if(!isset($_SESSION['ID'])){
+    header("Location:index.php");
+    exit();
+}
+
+include "DBconn/conn.php";
+
+// استجابة AJAX لجلب المناطق بناءً على المحافظة
+if (isset($_GET['province']) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $province = mysqli_real_escape_string($conn, $_GET['province']);
+    $query = "SELECT DISTINCT area FROM technicians WHERE province = '$province'";
+    $result = mysqli_query($conn, $query);
+
+    $areas = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $areas[] = $row['area'];
     }
 
-    include "DBconn/conn.php";
+    echo json_encode($areas);
+    exit();
+}
 
-    $selectLocationsQuiery = "SELECT DISTINCT area FROM technicians";
-    $selectedLocations = mysqli_query($conn,$selectLocationsQuiery);
-    $selectedSpecialtiesQuiery = "SELECT DISTINCT specialty FROM technicians";
-    $selectedSpecialties = mysqli_query($conn,$selectedSpecialtiesQuiery);
-    $selectProvinceQuiery = "SELECT DISTINCT province FROM technicians";
-    $selectedProvince = mysqli_query($conn,$selectProvinceQuiery);
-    if(isset($_POST['BtnSearch'])){
-        $specialtySelect = isset($_POST['specialty']) ? $_POST['specialty'] : "%";
-        $provinceSelect  = isset($_POST['province']) ? $_POST['province'] : "%";
-        $areaSelect      = isset($_POST['area']) ? $_POST['area'] : "%";
-        $SearchQuery = "SELECT users.first_name,users.last_name,users.user_id,technicians.specialty,technicians.province,technicians.area,technicians.visit_price,technicians.work_hours
-                        FROM technicians 
-                        JOIN users ON users.user_id = technicians.user_id
-                        WHERE technicians.specialty LIKE '$specialtySelect'
-                        AND technicians.province LIKE '$provinceSelect'
-                        AND technicians.area LIKE '$areaSelect'";
-        $result = mysqli_query($conn,$SearchQuery);
-    }else{
-        $SearchQuery = "SELECT users.first_name,users.last_name,users.user_id,technicians.specialty,technicians.province,technicians.area,technicians.visit_price,technicians.work_hours
-        FROM technicians 
-        JOIN users ON users.user_id = technicians.user_id";
-    $result = mysqli_query($conn,$SearchQuery);    
+// استعلامات للحصول على التخصصات، المحافظات، والمناطق
+$selectLocationsQuiery = "SELECT DISTINCT area FROM technicians";
+$selectedLocations = mysqli_query($conn,$selectLocationsQuiery);
+$selectedSpecialtiesQuiery = "SELECT DISTINCT specialty FROM technicians";
+$selectedSpecialties = mysqli_query($conn,$selectedSpecialtiesQuiery);
+$selectProvinceQuiery = "SELECT DISTINCT province FROM technicians";
+$selectedProvince = mysqli_query($conn,$selectProvinceQuiery);
+
+// تنفيذ البحث إذا تم الضغط على زر البحث
+if(isset($_POST['BtnSearch'])){
+    $specialtySelect = isset($_POST['specialty']) ? $_POST['specialty'] : "%";
+    $provinceSelect  = isset($_POST['province']) ? $_POST['province'] : "%";
+    $areaSelect      = isset($_POST['area']) ? $_POST['area'] : "%";
+    $SearchQuery = "SELECT users.first_name,users.last_name,users.user_id,technicians.specialty,technicians.province,technicians.area,technicians.visit_price,technicians.work_hours
+                    FROM technicians 
+                    JOIN users ON users.user_id = technicians.user_id
+                    WHERE technicians.specialty LIKE '$specialtySelect'
+                    AND technicians.province LIKE '$provinceSelect'
+                    AND technicians.area LIKE '$areaSelect'";
+    $result = mysqli_query($conn,$SearchQuery);
+} else {
+    $SearchQuery = "SELECT users.first_name,users.last_name,users.user_id,technicians.specialty,technicians.province,technicians.area,technicians.visit_price,technicians.work_hours
+                    FROM technicians 
+                    JOIN users ON users.user_id = technicians.user_id";
+    $result = mysqli_query($conn,$SearchQuery);
 }
 ?>
 
@@ -37,11 +55,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <title>اطلب فني</title>
     <link rel="stylesheet" href="./style/Technical Order.css">
     <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/general.css">
+
     <style>
         a.order {
             padding: 10px;
@@ -66,32 +83,32 @@
             <div class="filters">
                 <button onclick="searchTechnicians()" name="BtnSearch" type="submit">بحث</button>
                 <select id="specialty" name="specialty">
-                <option value=" " disabled selected>اختر التخصص</option>
-                <?php 
-                if(isset($selectedSpecialties)){
-                    while ($row = mysqli_fetch_assoc($selectedSpecialties)) {
-                        echo  '<option value=' . $row["specialty"] . '>' . $row["specialty"] . '</option>';
-                    }
-                }?>
+                    <option value=" " disabled selected>اختر التخصص</option>
+                    <?php 
+                    if(isset($selectedSpecialties)){
+                        while ($row = mysqli_fetch_assoc($selectedSpecialties)) {
+                            echo  '<option value="' . $row["specialty"] . '">' . $row["specialty"] . '</option>';
+                        }
+                    }?>
                 </select>
-            <select id="area" name="area">
-                <option disabled selected>اختيار المنطقة</option>
-                <?php 
-                if(isset($selectedLocations)){
-                    while ($row = mysqli_fetch_assoc($selectedLocations)) {
-                        echo  '<option value=' . $row["area"] . '>' . $row["area"] . '</option>';
-                    }
-                }?>
-            </select>
-            <select id="province" name="province">
-                <option disabled selected>اختيار المحافظة</option>
-                <?php
-                if(isset($selectedProvince)){
-                    while ($row = mysqli_fetch_assoc($selectedProvince)) {
-                        echo  '<option value=' . $row["province"] . '>' . $row["province"] . '</option>';
-                    }
-                }?>
-            </select>
+                <select id="area" name="area">
+                    <option disabled selected>اختيار المنطقة</option>
+                    <?php 
+                    if(isset($selectedLocations)){
+                        while ($row = mysqli_fetch_assoc($selectedLocations)) {
+                            echo  '<option value="' . $row["area"] . '">' . $row["area"] . '</option>';
+                        }
+                    }?>
+                </select>
+                <select id="province" name="province">
+                    <option disabled selected>اختيار المحافظة</option>
+                    <?php
+                    if(isset($selectedProvince)){
+                        while ($row = mysqli_fetch_assoc($selectedProvince)) {
+                            echo  '<option value="' . $row["province"] . '">' . $row["province"] . '</option>';
+                        }
+                    }?>
+                </select>
             </div>
         </div>
     </form>
@@ -102,7 +119,7 @@
         <div class="categories">
         </div>
         <div id="technicians-list" class="cards">
-        <?php
+            <?php
             if(isset($result)){
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<div class="card">
@@ -121,13 +138,44 @@
                         </div>';
                 }
             }
-        ?>
+            ?>
             <br><br>
         </div>
         <br> 
     </div>
+
+    <script>
+    document.getElementById("province").addEventListener("change", function () {
+        var selectedProvince = this.value;
+        var areaSelect = document.getElementById("area");
+
+        areaSelect.innerHTML = "<option>جاري التحميل...</option>";
+
+        var request = new XMLHttpRequest();
+        request.open("GET", "?province=" + selectedProvince, true);
+        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+        request.onload = function () {
+            if (request.status == 200) {
+                var areas = JSON.parse(request.responseText);
+                areaSelect.innerHTML = "<option selected disabled>اختيار المنطقة</option>";
+
+                for (var i = 0; i < areas.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = areas[i];
+                    option.textContent = areas[i];
+                    areaSelect.appendChild(option);
+                }
+            }
+        };
+
+        request.send();
+    });
+    </script>
+
 </body>
 </html>
+
 
 <?php
 include("footer.php");

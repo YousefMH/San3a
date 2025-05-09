@@ -5,36 +5,8 @@ if (!isset($_SESSION['ID'])) {
     header("Location:index.php");
     exit();
 }
+include "validation.php";
 
-$name=$phone_num=$problem_message=$submit_message="";
-
-$name_err=$phone_err=$problem_message_err="";
-
-if (isset($_POST['submit'])) {
-    $valid=false;
-    
-    if(empty($_POST['name'])){
-        $name_err='<p class="error">الرجاء ادخال الاسم </p>';
-        $has_error=true;
-    }
-
-    if(empty($_POST['phone_num']) || !is_numeric($_POST['phone_num']) || $_POST['phone_num'][0] != '0' || $_POST['phone_num'][1] != '1'){
-        $phone_err='<p class="error"> الرجاء ادخال رقم الهاتف بشكل صحيح يبدأ ب 01</p>';
-        $valid=true;
-    }
-
-    if(empty($_POST['problem_message'])){
-        $problem_message_err='<p class="error">الرجاء ادخال المشكلة </p>';
-        $valid=true;
-    }
-
-    if(!$valid){
-        $name = $_POST['name'];
-        $phone_num = $_POST['phone_num'];
-        $problem_message = $_POST['problem_message'];
-        $submit_message = '<p class="message">تم تسجيل مشكلتك بنجاح وسنتواصل معك قريبا لحل المشكلة</p>';
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,27 +40,30 @@ if (isset($_POST['submit'])) {
 
     <div class="support-form">
         <h2> هل تحتاج إلي المساعدة ؟</h2>
-        <form method="post" name="validation">
+         <form method="post" name="validation">
             <div class="name">
-                <input type="text" placeholder="الاسم بالكامل"  name="name" id="name" required>
-                <p id="name_error" style="color: red;"></p>
-                <?php echo $name_err ?>
+                <input type="text" placeholder="الاسم بالكامل" name="name" id="name" value="<?php echo htmlspecialchars($values['name']); ?>" required>
+                <p style="color: red;"><?php echo $errors['name']; ?></p>
             </div>
 
             <div class="phone">
-                <input type="text" placeholder="رقم الهاتف (يدعم واتس آب)" required name="phone_num" id="phone_num">
-                <?php echo $phone_err ?>
+                <input type="text" placeholder="رقم الهاتف" name="phone" id="phone" value="<?php echo htmlspecialchars($values['phone']); ?>" required>
+                <p style="color: red;"><?php echo $errors['phone']; ?></p>
             </div>
 
+            <div class="email">
+                <input type="email" placeholder="البريد الإلكتروني" name="email" id="email" value="<?php echo htmlspecialchars($values['email']); ?>" required>
+                <p style="color: red;"><?php echo $errors['email']; ?></p>
+            </div>
 
-            <div class="problem">
-                <textarea placeholder="اكتب لنا مشكلتك ..." name="problem_message" required></textarea>
-                <?php echo $problem_message_err ?>
+            <div class="date">
+                <input type="date" name="date" id="date" value="<?php echo htmlspecialchars($values['date']); ?>" required>
+                <p style="color: red;"><?php echo $errors['date']; ?></p>
             </div>
 
             <div class="submit">
-                <button type="submit" name="submit" >إرسال</button>
-                <?php echo $submit_message ?>
+                <button type="submit" name="submit">إرسال</button>
+                <p style="color: green;"><?php echo $submit_message; ?></p>
             </div>
         </form>
     </div>
