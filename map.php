@@ -1,23 +1,13 @@
 <?php
-session_start();
-if (!isset($_SESSION['ID'])) {
-    header("Location:index.php");
-    exit();
-}
-
-
+    session_start();
+    if(!isset($_SESSION['ID'])){
+        header("Location:index.php");
+        exit();
+    }
 
 ?>
 <?php
-
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "san3a";
-
-$conn = new mysqli($host, $user, $password, $db);
-$conn->set_charset("utf8");
-
+include("DBconn/conn.php");
 if ($conn->connect_error) {
     die("فشل الاتصال بقاعدة البيانات: " . $conn->connect_error);
 }
@@ -31,20 +21,23 @@ while($row = $result->fetch_assoc()) {
     $workers[] = $row;
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>خريطة أقرب صنايعي</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>أقرب فني ليك</title>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./style/map.css">
     <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/Home.css">
-    <style>
+    <link rel="stylesheet" href="./style/general.css">
+   
+
+ <style>
         
         body {
-            font-family: 'Arial', sans-serif;
+           
           
             margin: 0;
             padding: 0;
@@ -67,7 +60,7 @@ while($row = $result->fetch_assoc()) {
             border-radius: 10px;
         }
 
-        .search-container {
+       .search-container {
             width: 20%;
             height: 460px;
             float: right;
@@ -77,7 +70,9 @@ while($row = $result->fetch_assoc()) {
             margin-bottom: 5%;
             border: 5px solid darkgoldenrod ;
             border-radius: 10px;
+            box-sizing: border-box; /* ✅ هذا مهم */
         }
+
 
         .search-container h2 {
             text-align: center;
@@ -97,13 +92,13 @@ while($row = $result->fetch_assoc()) {
             direction: rtl;
         }
 
-        select, input {
+      .form-input {
+            width: 100%;  
             padding: 10px;
-            margin-bottom: 15px;
-            border: 4px solid white;
+            border: 1px solid white;
             border-radius: 5px;
             font-size: 16px;
-            
+            box-sizing: border-box; 
         }
 
         button {
@@ -138,14 +133,20 @@ while($row = $result->fetch_assoc()) {
 }
 
     </style>
+
 </head>
+
 <body>
-    <?php include "header.php"; ?>
-    <div class="search-container">
+
+    <?php include "header.php";?> <!-- header -->
+
+    
+
+   <div class="search-container">
         <h2>ابحث عن أقرب صنايعي</h2>
         <form id="searchForm">
             <label for="jobFilter">نوع الصنايعي:</label>
-            <select id="jobFilter">
+           <select id="jobFilter" class="form-input">
                 <option value="">-- اختر المهنة --</option>
                 <option value="سباك">سباك</option>
                 <option value="كهربائي">كهربائي</option>
@@ -154,15 +155,16 @@ while($row = $result->fetch_assoc()) {
             </select>
 
             <label for="locationInput">المكان:</label>
-            <input type="text" id="locationInput" placeholder="مثلاً: المعادي, القاهرة" />
+           <input type="text" id="locationInput" class="form-input" placeholder="مثلاً: المعادي, القاهرة" />
 
             <button type="submit">بحث</button>
         </form>
     </div>
 
-    <div id="map"></div>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <div id="map"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         
         const map = L.map('map').setView([29.89496, 31.261209], 13);
@@ -236,10 +238,9 @@ while($row = $result->fetch_assoc()) {
             }
         });
     </script>
-
 </body>
-</html>
 
+</html>
 <?php
 include("footer.php");
 ?>
