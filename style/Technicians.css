@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+
+body{
+    background: url(../Resorces/background.jpg);
+    font-family: "Tajawal", sans-serif;
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    height:100vh;
+    margin: 0px;
+    
+}
+
+.header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: rgba(255, 174, 0, 0.7);
+    border-radius: 0 0 20px 20px;
+    height: 50px;
+
+}
+
+.logo{
+    width: 99px;
+    padding: 0px 40px;
+
+}
+
+.link{
+    display: flex;
+    gap: 30px;
+    font-size: 16px;
+    
+}
+
+.link a{
+    text-decoration: none;
+    padding: 4px 20px;
+    color: #fff;
+}
+
+.link a:hover{
+    color: #000000;
+    background-color: #f0b22b;
+    border-radius: 35px;
+}
+
+
+
+.link button{
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+}
+
+
+.search-section {
+    background-color: #222;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    margin: 50px auto;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.filters select, .filters button {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f0b22b;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Tajawal", sans-serif;
+    text-align: center;
+}
+
+.technicians {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    width: 80%;
+    text-align: right;
+}
+
+.technicians h2{
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right:-20px;
+}
+
+.categories{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+
+.categories button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+   
+}
+
+.categories button:hover{
+    background: #F1D239;
+    color: darkblue;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    overflow: auto;
+}
+
+.card {
+    background: #444;
+    padding: 15px;
+    border-radius: 10px;
+    width: 600px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+
+.card :hover{
+    transform: scale(1.05);
+}
+
+
+.right{
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    margin-left: 480px;
+    width: 100px;
+    margin-top: 45px;
+    
+   
+}
+
+.rating{
+    font-size: 16px;
+    color: gold;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    margin-left: -3px; 
+    
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    flex: 1;
+    margin-top: -135px;
+    margin-right: 200px;
+    gap: 5px;
+}
+
+.left h3{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.left p{
+    margin: 3px;
+    margin-right: 1px;
+    padding: 0;
+    font-size: 14px bold;
+    color: #ddd;
+}
+
+
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+}
+
+h2{
+    text-align: center;
+    color: white;
+}
+.manage{
+    font-family: "Tajawal", sans-serif;
+    background: none;
+    border: none;
+    color: white;
+}
+
+option{
+    background-color: rgb(212, 138, 0);
+    text-align: center;
+    border-radius: 30px;
+
+}

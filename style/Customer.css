@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+
+body{
+    background: url(../Resorces/background.jpg);
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: cover;
+    
+    /* background-attachment: fixed; */
+    height:100%;
+    font-family: "Tajawal", sans-serif;
+    
+}
+.container{
+    padding: 20px 30px;
+}
+
+.register-container {
+    background: rgba(70, 70, 70, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+h2{
+    color: #fff;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    direction: rtl;
+    font-family: "Tajawal", sans-serif;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.upload-label {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "Tajawal", sans-serif;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #d4a017;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: "Tajawal", sans-serif;
+    color: #fff;
+}
+
+.register-btn a{
+    text-decoration: none;
+    color: #fff;
+}
+
+input {
+    font-size: 17px;
+}

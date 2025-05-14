@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+
+body{
+    background: url(../Resorces/background.jpg);
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    font-family: "Tajawal", sans-serif;
+
+}
+
+.login-container {
+    background: rgba(70, 70, 70, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); */
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.login-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    direction: rtl;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.login-btn {
+    width: 108%;
+    padding: 10px 19px;
+    background-color: #d4a017;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: -9px;
+    font-family: "Tajawal", sans-serif;
+}
+
+.new-account {
+    margin-top: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-account a {
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+
+.phone{
+    font-family: "Tajawal", sans-serif;
+}
+
+input {
+    font-size: 16px;
+}
