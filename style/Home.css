@@ -6,20 +6,9 @@ body {
     background-repeat: no-repeat;
     background-position: absolute;
     background-size: cover;
-    min-height: 100vh;
+    /* background-attachment: fixed; */
+    height: 100vh;
     margin: 0px;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
 }
 
 .header {
@@ -30,8 +19,6 @@ body::before {
     background-color: #FBAE3C;
     border-radius: 0 0 20px 20px;
     height: 50px;
-    position: relative;
-    z-index: 10;
 }
 
 .logo {
@@ -83,24 +70,11 @@ option {
 .now {
     font-family: "Tajawal", sans-serif;
     background-color: rgba(255, 255, 255, 0.7);
+    height: 65%;
     border: none;
-    padding: 40px;
+    padding: 150px 70px;
     border-radius: 5px;
     font-size: 20px;
-    flex: 1;
-    position: relative;
-    z-index: 1;
-}
-
-/* Welcome Section Layout */
-.welcome-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 70px;
-    position: relative;
-    z-index: 1;
-    gap: 20px;
 }
 
 .btn {
@@ -111,124 +85,4 @@ option {
     cursor: pointer;
     font-size: 20px;
     font-family: "Tajawal", sans-serif;
-    margin-top: 18px;
-}
-
-/* Video Section Styling */
-.video-container {
-    flex: 1;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    font-family: "Tajawal", sans-serif;
-}
-
-.video-container h3 {
-    font-size: 28px;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.video-container video {
-    max-width: 100%;
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.video-container video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-}
-
-.video-container::before {
-    content: '\f144';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    color: #fff;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.video-container video:hover::before {
-    opacity: 0;
-}
-
-/* Technician Section */
-.technician-section {
-    display: flex;
-    justify-content: center;
-    padding: 40px 70px;
-    position: relative;
-    z-index: 1;
-}
-
-.technician-info {
-    background: rgba(251, 174, 60, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    width: 100%;
-}
-
-.technician-info h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.technician-info p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.technician-info .btn {
-    background-color: #fff;
-    color: #FBAE3C;
-    border: 2px solid #FBAE3C;
-    transition: all 0.3s ease;
-}
-
-.technician-info .btn:hover {
-    background-color: #FBAE3C;
-    color: #fff;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .welcome-section {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .now {
-        padding: 20px;
-    }
-
-    .video-container {
-        margin: 0;
-    }
-
-    .video-container video {
-        width: 100%;
-    }
-
-    .video-container h3 {
-        font-size: 24px;
-    }
-
-    .technician-section {
-        padding: 20px;
-    }
 }

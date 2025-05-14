@@ -13,14 +13,14 @@ body{
 
 .register-container {
     background: rgba(70, 70, 70, 0.7);
-    padding: 20px 30px;
+    padding: 30px;
     border-radius: 10px;
     width: 320px;
     text-align: center;
-    position: absolute;
+
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(150%, 3%);
 }
 .register-container a{
     color: white;
@@ -76,8 +76,4 @@ input::placeholder {
     border-radius: 5px;
     margin-top: 20px;
     font-family: "Tajawal", sans-serif;
-}
-
-input {
-    font-size: 16px;
 }

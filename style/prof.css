@@ -59,13 +59,12 @@ body {
 }
 
 .form-container {
-    margin: 90px;
-    padding: 50px;
+    width: 25%;
+    margin: 70px auto;
+    padding: 30px;
     border: 2px solid #ffcc00;
     border-radius: 10px;
     background-color: #222;
-    position: absolute;
-    transform: translate(99%, 10%);
 }
 
 .profile-section {
@@ -156,16 +155,4 @@ option {
     background-color: rgb(212, 138, 0);
     text-align: center;
     border-radius: 30px;
-}
-#email{
-    width: 94%;
-}
-#phone{
-    width: 94%;
-}
-#sname{
-    width: 90%;
-}
-#fname{
-    width: 85%;
 }

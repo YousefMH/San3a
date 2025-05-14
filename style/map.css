@@ -82,8 +82,11 @@ body{
     flex-direction: column;
     padding: 20px;
     margin-top: -33%;
-    margin-left: 60%;    
+    margin-left: 60%;
+    
 
+    
+    
 }
 
 input{
@@ -91,7 +94,7 @@ input{
     border: none;
     padding: 10px 20px;
     font-size: 20px;
-    margin-top: 5px;  
+    margin-top: 20px;  
     font-family: "Tajawal", sans-serif;
     direction: rtl;
     background: transparent;
@@ -117,19 +120,7 @@ textarea{
     height: 150px;
 
 }
-.form-input {
-    border: none;
-    width: 100%;  
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    font-family: "Tajawal", sans-serif;
-
-        }
-button{
+.btn{
     background-color: #f0b22b;
     border: none;
     padding: 5px 20px;
@@ -140,11 +131,6 @@ button{
     margin-top: 10px;
     direction: rtl;
 }
-button:hover{
-    background-color: #ffaa2b;
-    color: #ffffff;
-}
-
 h3{
     color: #fff;
 }

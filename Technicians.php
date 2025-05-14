@@ -40,8 +40,6 @@
     <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <title>اطلب فني</title>
     <link rel="stylesheet" href="./style/Technical Order.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/general.css">
     <style>
         a.order {
             padding: 10px;
@@ -83,17 +81,22 @@
                     }
                 }?>
             </select>
-            <select id="province" name="province" onchange="loadAreas(this.value)">
+            <select id="province" name="province">
                 <option disabled selected>اختيار المحافظة</option>
-                <option value="الجيزة">الجيزة</option>
-                <option value="القاهرة">القاهرة</option>
+                <?php
+                if(isset($selectedProvince)){
+                    while ($row = mysqli_fetch_assoc($selectedProvince)) {
+                        echo  '<option value=' . $row["province"] . '>' . $row["province"] . '</option>';
+                    }
+                }?>
             </select>
             </div>
         </div>
     </form>
+
     <div class="technicians">
         <h2>أفضل ما لدينا</h2>
-
+      
         <div class="categories">
         </div>
         <div id="technicians-list" class="cards">
@@ -122,27 +125,4 @@
         <br> 
     </div>
 </body>
-<?php
-include("footer.php");
-?>
-<script>
-    const areaOptions = {
-        "الجيزة": ["الهرم", "أكتوبر", "زايد", "فيصل"],
-        "القاهرة": ["التجمع الخامس", "الرحاب", "مدينتي"]
-    };
-
-    function loadAreas(province) {
-        const areaSelect = document.getElementById("area");
-        areaSelect.innerHTML = '<option disabled selected>اختيار المنطقة</option>';
-
-        if (areaOptions[province]) {
-            areaOptions[province].forEach(area => {
-                const option = document.createElement("option");
-                option.value = area;
-                option.textContent = area;
-                areaSelect.appendChild(option);
-            });
-        }
-    }
-</script>
 </html>

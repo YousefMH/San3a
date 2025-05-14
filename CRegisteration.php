@@ -9,10 +9,11 @@
         } //  function to sanitizes data user input
 
     if(isset($_POST["btnRegister"])){ // When button clicked
-        if(isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) &&  isset($_POST["pass"])) {// Checks if users entered the data in the inputs
+        if(isset($_POST["fname"]) && isset($_POST["sname"]) && isset($_POST["email"]) && isset($_POST["NID"]) && isset($_POST["pass"])) {// Checks if users entered the data in the inputs
             $fname = test_input($_POST["fname"]);
             $sname = test_input($_POST["sname"]);
             $email = test_input($_POST["email"]);
+            $NID = test_input($_POST["NID"]);
             $pass = test_input($_POST["pass"]);
             $hashedPassword = password_hash($pass, PASSWORD_DEFAULT); // Create password hash from the entered password
 
@@ -58,6 +59,7 @@
             <input type="text" placeholder="أدخل الاسم الأول" name="fname" required>
             <input type="text" placeholder="أدخل الاسم الثاني" name="sname" required>
             <input type="email" placeholder="أدخل البريد الإلكتروني" name="email" required>
+            <input type="text" placeholder="أدخل الرقم القومي" name="NID" required>
             <div class="form-group">
             <input type="password" id="password1" placeholder="أدخل كلمة المرور" name="pass" required>
             </div>

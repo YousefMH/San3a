@@ -61,7 +61,6 @@
             
             <div class="new-account" dir="rtl">
                 <a href="select.php">حساب جديد</a>
-                <a href="#">نسيت الباسورد</a>
             </div>
         </form>
     </div>  

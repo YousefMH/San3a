@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
-
 body{
     background: url(../Resorces/background.jpg);
     font-family: "Tajawal", sans-serif;
@@ -10,12 +9,11 @@ body{
     /* background-attachment: fixed; */
     height:100vh;
     margin: 0px;
-    width: 100%;
     
 }
 
 .header{
-    
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,15 +25,6 @@ body{
     
 }
 
-.support-form {
-    background-color: #1b1b1b;
-    border:  2px solid #ffae00;
-    border-radius: 10px;
-    margin-top: 60px;
-    position: absolute;
-    transform: translate(35%, 10%);
-    
-}
 .logo{
     width: 99px;
     padding: 0px 40px;
@@ -100,6 +89,24 @@ h2{
     border: 2px solid rgb(255, 0, 0);
 }
 
+.support-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 900px;
+    background: #333;
+    border:  2px solid #ffae00;
+    padding: 1px 20px;
+    border-radius: 10px;
+    
+}
 
 
 form {
@@ -111,7 +118,7 @@ form {
     margin-top: auto;
     width: 100%;
     max-width: 860px;
-    padding: 5px 20px;
+    padding: 20px;
     box-sizing: border-box;
     gap: 15px;
 }

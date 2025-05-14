@@ -1,5 +1,4 @@
 <?php
-    
     session_start();
     include "DBconn/conn.php";
     if(!isset($_SESSION['ID'])){
@@ -22,7 +21,6 @@
         $cPhone = $row['phone'];
         $cFname = $row['first_name'];
         $cLname = $row['last_name'];
-        
     } else {
         echo "No user found";
     }
@@ -33,7 +31,6 @@
             $nPhone = $_POST["phone"];
             $nFname = $_POST["fname"];
             $nLname = $_POST["sname"];
-            $_SESSION['fname'] = $nFname;
 
             $query = "UPDATE users SET email = '$nEmail', phone = '$nPhone', first_name = '$nFname', last_name = '$nLname'
             WHERE user_id = $currentID";
@@ -65,7 +62,6 @@
     <link rel="website icon" type="png" href="Resorces/Frame 16.png">
     <title>Document</title>
     <link rel="stylesheet" href="./style/prof.css">
-    <link rel="stylesheet" href="./style/footer-ContactUs.css">
 </head>
 <body >
     
@@ -77,7 +73,7 @@
                 <input type="text" placeholder="الاسم الثاني" name="sname" id="sname">
                 <input type="text" placeholder="الاسم الأول" name="fname" id="fname">
             </div>
-            <input type="email" placeholder="البريد الإلكتروني" name=" email" id="email" >
+            <input type="email" placeholder="البريد الإلكتروني" name=" email" id="email">
             <input type="tel" placeholder="رقم الهاتف" name="phone" id="phone">
             <div class="buttons">
                 <button class="save" type="submit" name="btnSave">حفظ</button>
@@ -101,10 +97,3 @@
     </script>
 </body>
 </html>
-
-<<<<<<< HEAD
-=======
-<?php
-include("footer.php");
-?>
->>>>>>> c2912c47e0afd951fd9e3106672352e2dce4403f
